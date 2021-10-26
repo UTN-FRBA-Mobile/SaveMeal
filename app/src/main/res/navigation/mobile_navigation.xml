@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/nav_home"
@@ -22,4 +22,34 @@
         android:name="com.example.savemeal.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.savemeal.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpShopFragment"
+            app:destination="@id/signUpShopFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpConsumerFragment"
+            app:destination="@id/signUpConsumerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpShopFragment"
+        android:name="com.example.savemeal.SignUpShopFragment"
+        android:label="fragment_sign_up_shop"
+        tools:layout="@layout/fragment_sign_up_shop" />
+    <fragment
+        android:id="@+id/signUpConsumerFragment"
+        android:name="com.example.savemeal.SignUpConsumerFragment"
+        android:label="fragment_sign_up_consumer"
+        tools:layout="@layout/fragment_sign_up_consumer" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.savemeal.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" />
 </navigation>
