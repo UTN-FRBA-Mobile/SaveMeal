@@ -1,5 +1,6 @@
 package com.example.savemeal
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +9,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.savemeal.databinding.FragmentLoginBinding
+import androidx.appcompat.app.AppCompatActivity
+
+
+
 
 class LoginFragment : Fragment() {
+
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
@@ -45,6 +51,21 @@ class LoginFragment : Fragment() {
             // Other way to do the same thing
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignUpShopFragment())
         }
+    }
 
+    override fun onDestroyView() {
+        _binding = null
+
+        super.onDestroyView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 }

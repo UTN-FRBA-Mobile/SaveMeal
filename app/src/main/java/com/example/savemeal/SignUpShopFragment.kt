@@ -18,4 +18,10 @@ class SignUpShopFragment : Fragment() {
         _binding = FragmentSignUpShopBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onDestroyView() {
+        _binding = null
+
+        super.onDestroyView()
+    }
 }
