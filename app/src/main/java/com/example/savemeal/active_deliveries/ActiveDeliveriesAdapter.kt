@@ -26,7 +26,7 @@ class ActiveDeliveriesAdapter(dataSet: ArrayList<String>) : RecyclerView.Adapter
         mListener=listener
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
+    class ViewHolder(view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view){
         var vista = view
         var textView: TextView
         init {
@@ -38,7 +38,7 @@ class ActiveDeliveriesAdapter(dataSet: ArrayList<String>) : RecyclerView.Adapter
 
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.layout_active_deliveries, viewGroup, false)
-        return ViewHolder(view)
+        return ViewHolder(view, mListener)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {

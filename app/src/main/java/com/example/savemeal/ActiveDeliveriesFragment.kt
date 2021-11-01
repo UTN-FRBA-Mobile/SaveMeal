@@ -1,11 +1,14 @@
 package com.example.savemeal
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.savemeal.active_deliveries.ActiveDeliveriesAdapter
@@ -20,6 +23,7 @@ class ActiveDeliveriesFragment : Fragment() {
     var lista: RecyclerView? = null
     var layoutManager: RecyclerView.LayoutManager? = null
 
+    var seleccion: Int? = null
     private var borrarButton: Button? = null
     private var editarButton: Button? = null
 
@@ -44,6 +48,32 @@ class ActiveDeliveriesFragment : Fragment() {
 
         borrarButton = binding.buttonDelete
         editarButton = binding.buttonEdit
+
+        adapter!!.setOnItemClickListener(object: ActiveDeliveriesAdapter.onItemClickListener {
+            override fun onItemClick(position: Int) {
+                seleccion = position
+            }
+        })
+
+        borrarButton!!.setOnClickListener {
+            if(seleccion==null)
+            {
+                Toast.makeText(this.context, "Seleccione una entrega", Toast.LENGTH_SHORT).show()
+            } else {
+                dataList!!.removeAt(seleccion!!)
+                refreshFragment()
+                Toast.makeText(this.context, "Entrega eliminada!", Toast.LENGTH_SHORT).show()
+
+
+            }
+        }
+
+
+    }
+
+    fun refreshFragment() {
+
+
     }
 
     private fun rellenarLista(dataList: ArrayList<String>) {
