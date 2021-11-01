@@ -39,7 +39,6 @@ class LoginFragment : Fragment() {
         }
 
         binding.buttonConsumerSignUp.setOnClickListener{
-            // One way to do it
             val action = R.id.action_loginFragment_to_signUpConsumerFragment
             findNavController().navigate(action)
         }
@@ -54,15 +53,5 @@ class LoginFragment : Fragment() {
         _binding = null
 
         super.onDestroyView()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 }
