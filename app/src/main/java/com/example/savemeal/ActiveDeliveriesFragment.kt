@@ -61,17 +61,12 @@ class ActiveDeliveriesFragment : Fragment() {
                 Toast.makeText(this.context, "Seleccione una entrega", Toast.LENGTH_SHORT).show()
             } else {
                 dataList!!.removeAt(seleccion!!)
-                refreshFragment()
+                adapter!!.notifyDataSetChanged()
                 Toast.makeText(this.context, "Entrega eliminada!", Toast.LENGTH_SHORT).show()
 
 
             }
         }
-
-
-    }
-
-    fun refreshFragment() {
 
 
     }
