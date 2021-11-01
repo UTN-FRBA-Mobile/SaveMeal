@@ -1,6 +1,5 @@
-package com.example.savemeal
+package com.example.savemeal.login
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,8 +9,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.savemeal.databinding.FragmentLoginBinding
 import androidx.appcompat.app.AppCompatActivity
-
-
+import com.example.savemeal.R
 
 
 class LoginFragment : Fragment() {
@@ -34,10 +32,9 @@ class LoginFragment : Fragment() {
             val password = binding.passwordTextInput.text.toString()
 
             if (username.isEmpty() || password.isEmpty()){
-                Toast.makeText(activity,"Ingrese usuario y contrasseña", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,"Ingrese usuario y contraseña", Toast.LENGTH_SHORT).show()
             } else {
-                val action = R.id.action_loginFragment_to_welcomeFragment
-                findNavController().navigate(action)
+                //navigate to main activity
             }
         }
 
@@ -48,8 +45,8 @@ class LoginFragment : Fragment() {
         }
 
         binding.buttonShopSignUp.setOnClickListener{
-            // Other way to do the same thing
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignUpShopFragment())
+            val action = R.id.action_loginFragment_to_signUpShopFragment
+            findNavController().navigate(action)
         }
     }
 

@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/login_navigation"
+    tools:context=".login.LoginFragment">
 
     <ImageView
         android:layout_width="40dp"
@@ -67,7 +70,7 @@
 
     <TextView
         android:paddingTop="24dp"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/purple_primary"
         android:id="@+id/button_shop_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,7 +80,7 @@
 
     <TextView
         android:paddingTop="8dp"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/purple_primary"
         android:id="@+id/button_consumer_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

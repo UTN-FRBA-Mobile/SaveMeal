@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SaveMeal" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.SaveMeal" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/purple_primary</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -22,4 +22,15 @@
     <style name="Theme.SaveMeal.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SaveMeal.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.SaveMeal.Fullscreen" parent="Theme.SaveMeal">
+        <item name="android:actionBarStyle">@style/Widget.Theme.SaveMeal.ActionBar.Fullscreen</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="ThemeOverlay.SaveMeal.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/white</item>
+        <item name="fullscreenTextColor">@color/purple_primary</item>
+    </style>
 </resources>

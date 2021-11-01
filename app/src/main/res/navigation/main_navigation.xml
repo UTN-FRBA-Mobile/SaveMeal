@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/availableMealsFragment">
+
+    <fragment
+        android:id="@+id/availableMealsFragment"
+        android:name="com.example.savemeal.AvailableMealsFragment"
+        android:label="fragment_available_meals"
+        tools:layout="@layout/fragment_available_meals" />
+    <fragment
+        android:id="@+id/reservationsFragment"
+        android:name="com.example.savemeal.ReservationsFragment"
+        android:label="fragment_reservations"
+        tools:layout="@layout/fragment_reservations" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.savemeal.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
