@@ -9,7 +9,11 @@
         android:id="@+id/availableMealsFragment"
         android:name="com.example.savemeal.meal.AvailableMealsFragment"
         android:label="fragment_available_meals"
-        tools:layout="@layout/fragment_available_meals" />
+        tools:layout="@layout/fragment_available_meals" >
+        <action
+            android:id="@+id/action_availableMealsFragment_to_productViewFragment"
+            app:destination="@id/productViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/reservationsFragment"
         android:name="com.example.savemeal.ReservationsFragment"
