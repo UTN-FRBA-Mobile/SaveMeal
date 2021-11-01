@@ -1,5 +1,6 @@
 package com.example.savemeal.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.savemeal.databinding.FragmentLoginBinding
 import androidx.appcompat.app.AppCompatActivity
+import com.example.savemeal.MainActivity
 import com.example.savemeal.R
 
 
@@ -35,6 +37,8 @@ class LoginFragment : Fragment() {
                 Toast.makeText(activity,"Ingrese usuario y contraseña", Toast.LENGTH_SHORT).show()
             } else {
                 //navigate to main activity
+                val intent = Intent(this.activity, MainActivity::class.java)
+                startActivity(intent)
             }
         }
 
