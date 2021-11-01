@@ -9,13 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.savemeal.databinding.FragmentLoginBinding
-import androidx.appcompat.app.AppCompatActivity
 import com.example.savemeal.MainActivity
 import com.example.savemeal.R
 
-
 class LoginFragment : Fragment() {
-
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 

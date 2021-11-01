@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductViewFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:text="Una comida"
+        android:layout_centerHorizontal="true"
+        android:textSize="32dp"
+        android:paddingBottom="16dp"/>
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/comida"
+        android:scaleType="centerInside"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/title"/>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/photo"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:stretchColumns="1">
+
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Porciones disponibles" />
+            <TextView
+                android:gravity="right"
+                android:padding="4dip"
+                android:text="4" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Direccióm" />
+            <TextView
+                android:gravity="right"
+                android:padding="4dip"
+                android:text="Calle Falsa 1234" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Horario de cierre" />
+            <TextView
+                android:gravity="right"
+                android:padding="4dip"
+                android:text="23:30" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Fecha de vencimiento" />
+            <TextView
+                android:gravity="right"
+                android:padding="4dip"
+                android:text="01/01/2022" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@id/button_obtain_code"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cantidad"
+            android:layout_gravity="center"/>
+        <NumberPicker
+            android:id="@+id/quantity_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/button_book_meal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="1dp"
+            android:layout_weight="1">
+        </NumberPicker>
+        <Button
+            android:id="@+id/button_book_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/button_obtain_code"
+            android:text="Reservar"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_obtain_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear cuenta"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

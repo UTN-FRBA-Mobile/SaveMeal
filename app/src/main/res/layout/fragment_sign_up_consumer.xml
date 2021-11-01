@@ -20,8 +20,7 @@
         android:text="Registro consumidor"
         android:layout_centerHorizontal="true"
         android:textSize="32dp"
-        android:paddingBottom="16dp"
-        />
+        android:paddingBottom="16dp"/>
 
     <LinearLayout
         xmlns:tools="http://schemas.android.com/tools"
