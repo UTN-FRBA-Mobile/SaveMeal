@@ -37,10 +37,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-//        Esto sirve para que no te permita ahcer un swipe desde la izquierda cuando no queres que esté el login habilitado.
-//        Se podría pasar a una interfaz y que se lo llame desde el fragment que no deberia mostrar el drawer
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
