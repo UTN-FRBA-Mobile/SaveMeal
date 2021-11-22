@@ -23,4 +23,18 @@ class ProductViewFragment : Fragment() {
         np.value = 1
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonObtainCode.setOnClickListener {
+
+            val dialog = CodeDialogFragment()
+            dialog.show(parentFragmentManager, "No se que es el tag")
+
+//            val intent = Intent(this.activity, MainActivity::class.java)
+//            startActivity(intent)
+//
+//            showCodeDialog()
+        }
+    }
 }
