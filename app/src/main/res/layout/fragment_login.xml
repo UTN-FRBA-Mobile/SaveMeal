@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginFragment">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logo"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"/>
+
+    <TextView
+        android:paddingTop="160dp"
+        android:textSize="40dp"
+        android:id="@+id/Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/user_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="56dp"
+        android:paddingRight="56dp"
+        android:paddingBottom="8dp">
+
+        <EditText
+            android:id="@+id/username_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Usuario"/>
+
+        <EditText
+            android:id="@+id/password_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Contraseña"
+            tools:ignore="TextFields" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/user_pass"/>
+
+    <TextView
+        android:paddingTop="8dp"
+        android:id="@+id/button_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Olvidé mi contraseña"
+        android:layout_below="@id/button_login"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:paddingTop="24dp"
+        android:textColor="@color/purple_primary"
+        android:id="@+id/button_shop_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrarme como comercio"
+        android:layout_below="@id/button_forgot_password"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:paddingTop="8dp"
+        android:textColor="@color/purple_primary"
+        android:id="@+id/button_consumer_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrarme como consumidor"
+        android:layout_below="@id/button_shop_sign_up"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
