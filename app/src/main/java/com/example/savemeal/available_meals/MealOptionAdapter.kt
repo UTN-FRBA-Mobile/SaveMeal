@@ -1,4 +1,4 @@
-package com.example.savemeal.meal
+package com.example.savemeal.available_meals
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -51,4 +51,3 @@ class MealOptionAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 }
 
-data class MealOption(val type: String)

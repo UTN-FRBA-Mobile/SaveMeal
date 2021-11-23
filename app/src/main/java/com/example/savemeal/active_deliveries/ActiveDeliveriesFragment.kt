@@ -1,4 +1,4 @@
-package com.example.savemeal
+package com.example.savemeal.active_deliveries
 
 import android.content.Context
 import android.os.Bundle

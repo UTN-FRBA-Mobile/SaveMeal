@@ -1,4 +1,4 @@
-package com.example.savemeal.meal
+package com.example.savemeal.available_meals
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
