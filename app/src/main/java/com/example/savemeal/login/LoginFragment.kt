@@ -1,5 +1,6 @@
 package com.example.savemeal.login
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +12,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.savemeal.databinding.FragmentLoginBinding
 import com.example.savemeal.MainActivity
 import com.example.savemeal.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GetTokenResult
+
+import com.google.android.gms.tasks.OnSuccessListener
+
+
+
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -33,9 +41,24 @@ class LoginFragment : Fragment() {
             if (username.isEmpty() || password.isEmpty()){
                 Toast.makeText(activity,"Ingrese usuario y contraseña", Toast.LENGTH_SHORT).show()
             } else {
-                //navigate to main activity
-                val intent = Intent(this.activity, MainActivity::class.java)
-                startActivity(intent)
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(username, password)
+                    .addOnCompleteListener{
+                        if (it.isSuccessful){
+
+                            it.result?.user?.getIdToken(false)
+                                ?.addOnSuccessListener(OnSuccessListener<GetTokenResult> { result ->
+                                    val isShop: Boolean = result.claims["shop"] as Boolean
+                                        // Navigate to main activity show available meals fragment
+                                        val intent = Intent(this.activity, MainActivity::class.java).apply{
+                                            putExtra("email", it.result?.user?.email)
+                                            putExtra("isShop", isShop)
+                                        }
+                                        startActivity(intent)
+                                })
+                        } else {
+                            showAlert()
+                        }
+                    }
             }
         }
 
@@ -54,5 +77,14 @@ class LoginFragment : Fragment() {
         _binding = null
 
         super.onDestroyView()
+    }
+
+    private fun showAlert() {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Error")
+        builder.setMessage("Error de autenticación. Intentelo nuevamente")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "881155427610",
+    "project_id": "savemeal-bd530",
+    "storage_bucket": "savemeal-bd530.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881155427610:android:e0a9df778415303118f0a3",
+        "android_client_info": {
+          "package_name": "com.example.savemeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881155427610-tqov821qcnvrrmvdsuiv28s1ab2hv1hi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZKrZgZ87sf1VsnSa83hVhpI-OHkIDNyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881155427610-tqov821qcnvrrmvdsuiv28s1ab2hv1hi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
