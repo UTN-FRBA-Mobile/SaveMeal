@@ -21,7 +21,7 @@
         android:id="@+id/reservation_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+
         android:textColor="@color/black"
         android:textSize="@dimen/section_title"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,11 +29,12 @@
 
     <ImageView
         android:id="@+id/reserv_photo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+
         android:src="@drawable/comida"
-        app:layout_constraintBottom_toTopOf="@id/reserv_info"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reservation_title" />
 
@@ -46,42 +47,56 @@
         android:paddingTop="16dp"
         android:paddingRight="16dp"
         android:stretchColumns="1"
-        app:layout_constraintTop_toBottomOf="@+id/reserv_photo">
+
+        app:layout_constraintTop_toBottomOf="@+id/reserv_photo"
+        >
+
         <TableRow>
+
             <TextView
                 android:padding="4dp"
                 android:text="Porciones Reservadas" />
+
             <TextView
+                android:id="@+id/portions"
                 android:gravity="right"
-                android:padding="4dip"
-                android:id="@+id/portions" />
+                android:padding="4dip" />
         </TableRow>
+
         <TableRow>
+
             <TextView
                 android:padding="4dp"
                 android:text="Dirección" />
+
             <TextView
+                android:id="@+id/address"
                 android:gravity="right"
-                android:padding="4dip"
-                android:id="@+id/address"/>
+                android:padding="4dip" />
         </TableRow>
+
         <TableRow>
+
             <TextView
                 android:padding="4dp"
                 android:text="Horario de cierre" />
+
             <TextView
+                android:id="@+id/close_time"
                 android:gravity="right"
-                android:padding="4dip"
-                android:id="@+id/close_time" />
+                android:padding="4dip" />
         </TableRow>
+
         <TableRow>
+
             <TextView
                 android:padding="4dp"
                 android:text="Fecha de vencimiento" />
+
             <TextView
+                android:id="@+id/expiration_date"
                 android:gravity="right"
-                android:padding="4dip"
-                android:id="@+id/expiration_date" />
+                android:padding="4dip" />
         </TableRow>
     </TableLayout>
 
@@ -90,7 +105,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancelar Reserva"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reserv_info" />
