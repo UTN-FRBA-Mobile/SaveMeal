@@ -6,20 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.savemeal.databinding.FragmentReservationsBinding
+import com.example.savemeal.databinding.FragmentReservationDetailBinding
 
-class ReservationsFragment : Fragment() {
-    private var _binding: FragmentReservationsBinding? = null
+class ReservationDetailFragment : Fragment() {
+    private var _binding: FragmentReservationDetailBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentReservationsBinding.inflate(inflater, container, false)
+        _binding = FragmentReservationDetailBinding.inflate(inflater, container, false)
 
-        binding.reservasRecycler.layoutManager = LinearLayoutManager(context)
-        binding.reservasRecycler.adapter = ReservationsOptionAdapter()
+
         return binding.root
     }
 

@@ -24,9 +24,9 @@ class ReservationsOptionAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         val reservOption = options[position]
         (holder as ReservationOptionViewHolder).bind(reservOption)
 
-        //holder.itemView.setOnClickListener(
-            //Navigation.createNavigateOnClickListener()
-        //)
+        holder.itemView.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_reservationsFragment_to_reservationDetailFragment)
+        )
     }
 
     override fun getItemCount(): Int {

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".reservations.ReservationDetailFragment">
+
+
+    <TextView
+        android:id="@+id/reserv_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reserva seleccionada:"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/reservation_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="@dimen/section_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reserv_header" />
+
+    <ImageView
+        android:id="@+id/reserv_photo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/comida"
+        app:layout_constraintBottom_toTopOf="@id/reserv_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reservation_title" />
+
+    <TableLayout
+        android:id="@+id/reserv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reserv_photo"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:stretchColumns="1"
+        app:layout_constraintTop_toBottomOf="@+id/reserv_photo">
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Porciones Reservadas" />
+            <TextView
+                android:gravity="right"
+                android:padding="4dip"
+                android:id="@+id/portions" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Dirección" />
+            <TextView
+                android:gravity="right"
+                android:padding="4dip"
+                android:id="@+id/address"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Horario de cierre" />
+            <TextView
+                android:gravity="right"
+                android:padding="4dip"
+                android:id="@+id/close_time" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Fecha de vencimiento" />
+            <TextView
+                android:gravity="right"
+                android:padding="4dip"
+                android:id="@+id/expiration_date" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button_cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancelar Reserva"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reserv_info" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
