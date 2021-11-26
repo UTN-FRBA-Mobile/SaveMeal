@@ -1,10 +1,12 @@
-package com.example.savemeal
+package com.example.savemeal.reservations
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+
 import com.example.savemeal.databinding.FragmentReservationsBinding
 
 class ReservationsFragment : Fragment() {
@@ -16,6 +18,9 @@ class ReservationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentReservationsBinding.inflate(inflater, container, false)
+
+        binding.reservasRecycler.layoutManager = LinearLayoutManager(context)
+        binding.reservasRecycler.adapter = ReservationsOptionAdapter()
         return binding.root
     }
 

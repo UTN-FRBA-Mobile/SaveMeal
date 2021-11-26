@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/reservationsFragment"
-        android:name="com.example.savemeal.ReservationsFragment"
+        android:name="com.example.savemeal.reservations.ReservationsFragment"
         android:label="fragment_reservations"
         tools:layout="@layout/fragment_reservations" />
     <fragment
