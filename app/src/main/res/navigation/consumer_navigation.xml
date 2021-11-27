@@ -16,9 +16,13 @@
     </fragment>
     <fragment
         android:id="@+id/reservationsFragment"
-        android:name="com.example.savemeal.ReservationsFragment"
-        android:label="fragment_reservations"
-        tools:layout="@layout/fragment_reservations" />
+        android:name="com.example.savemeal.reservations.ReservationsFragment"
+        android:label="Reservas"
+        tools:layout="@layout/fragment_reservations" >
+        <action
+            android:id="@+id/action_reservationsFragment_to_reservationDetailFragment"
+            app:destination="@id/reservationDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.savemeal.ProfileFragment"
@@ -29,4 +33,13 @@
         android:name="com.example.savemeal.ProductViewFragment"
         android:label="Detalle"
         tools:layout="@layout/fragment_product_view" />
+    <fragment
+        android:id="@+id/reservationDetailFragment"
+        android:name="com.example.savemeal.reservations.ReservationDetailFragment"
+        android:label="Detalle de la reserva"
+        tools:layout="@layout/fragment_reservation_detail" >
+        <action
+            android:id="@+id/action_reservationDetailFragment_to_reservationsFragment"
+            app:destination="@id/reservationsFragment" />
+    </fragment>
 </navigation>
