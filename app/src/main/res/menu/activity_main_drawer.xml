@@ -6,15 +6,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/availableMealsFragment"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Inicio" />
+            android:title="Comidas Disponibles" />
         <item
             android:id="@+id/profileFragment"
-            android:icon="@drawable/ic_menu_gallery"
             android:title="Mi Perfil" />
         <item
             android:id="@+id/reservationsFragment"
-            android:icon="@drawable/ic_menu_slideshow"
             android:title="Mis Reservas" />
     </group>
 </menu>

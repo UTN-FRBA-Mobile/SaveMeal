@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/availableMealsFragment"
         android:name="com.example.savemeal.available_meals.AvailableMealsFragment"
-        android:label="fragment_available_meals"
-        tools:layout="@layout/fragment_available_meals" >
+        android:label="Comidas disponibles"
+        tools:layout="@layout/fragment_available_meals">
         <action
             android:id="@+id/action_availableMealsFragment_to_productViewFragment"
             app:destination="@id/productViewFragment" />
@@ -31,7 +31,7 @@
     <fragment
         android:id="@+id/productViewFragment"
         android:name="com.example.savemeal.ProductViewFragment"
-        android:label="fragment_product_view"
+        android:label="Detalle"
         tools:layout="@layout/fragment_product_view" />
     <fragment
         android:id="@+id/reservationDetailFragment"

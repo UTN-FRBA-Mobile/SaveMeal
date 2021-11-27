@@ -3,32 +3,25 @@ package com.example.savemeal.available_meals
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.savemeal.R
 import com.example.savemeal.databinding.MealOptionItemBinding
+import com.example.savemeal.domain.MealOption
 
-class MealOptionAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val options = listOf(
-        MealOption("Opcion 1"),
-        MealOption("Opcion 2"),
-        MealOption("Opcion 3"),
-        MealOption("Opcion 4"),
-        MealOption("Opcion 5"),
-        MealOption("Opcion 6"),
-        MealOption("Opcion 7"),
-        MealOption("Opcion 8"),
-        MealOption("Opcion 9"),
-        MealOption("Opcion 10")
-    )
+class AvailableMealAdapter : ListAdapter<MealOption, RecyclerView.ViewHolder>(MealDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MealOptionViewHolder(
             MealOptionItemBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false))
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val mealOption = options[position]
+        val mealOption = getItem(position)
         (holder as MealOptionViewHolder).bind(mealOption)
 
         holder.itemView.setOnClickListener(
@@ -36,18 +29,25 @@ class MealOptionAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         )
     }
 
-    override fun getItemCount(): Int {
-        return options.count()
-    }
-
     class MealOptionViewHolder(
         val binding: MealOptionItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: MealOption) {
-            binding.mealType.text = item.type
+            binding.mealType.text = item.nombre
         }
     }
 
+}
+
+private class MealDiffCallback : DiffUtil.ItemCallback<MealOption>() {
+
+    override fun areItemsTheSame(oldItem: MealOption, newItem: MealOption): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: MealOption, newItem: MealOption): Boolean {
+        return oldItem == newItem
+    }
 }
 
