@@ -2,15 +2,17 @@ package com.example.savemeal.ShopProducts
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.savemeal.R
 import com.example.savemeal.databinding.ShopProductItemBinding
+import com.example.savemeal.domain.reservation.ReservationOption
 
-class ShopProductsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val products = listOf(
-        ShopProduct("Opcion 1"),
-        ShopProduct("Opcion 2"),
-        ShopProduct("Opcion 3")
-    )
+class ShopProductsAdapter : ListAdapter<ShopProduct,RecyclerView.ViewHolder>(ProductsDiffCallback()) {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ShopProductViewHolder(
@@ -19,17 +21,16 @@ class ShopProductsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val shopProduct = products[position]
+        val shopProduct = getItem(position)
         (holder as ShopProductViewHolder).bind(shopProduct)
+
+        val bundle = bundleOf("productId" to shopProduct.productId)
+
 
         // TODO onclick listeners a los botones de editar y eliminat
 //        holder.itemView.setOnClickListener(
 //            Navigation.createNavigateOnClickListener(R.id.action_reservationsFragment_to_reservationDetailFragment)
 //        )
-    }
-
-    override fun getItemCount(): Int {
-        return products.count()
     }
 
     class ShopProductViewHolder(
@@ -39,5 +40,19 @@ class ShopProductsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(item: ShopProduct) {
             binding.productName.text = item.name
         }
+    }
+}
+
+private class ProductsDiffCallback : DiffUtil.ItemCallback<ShopProduct>() {
+
+    override fun areItemsTheSame(oldItem: ShopProduct, newItem: ShopProduct): Boolean {
+        return oldItem.productId == newItem.productId
+    }
+
+    override fun areContentsTheSame(
+        oldItem: ShopProduct,
+        newItem: ShopProduct
+    ): Boolean {
+        return oldItem == newItem
     }
 }
