@@ -58,15 +58,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/portions_text_input" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="141dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="84dp"
+    <Button
+        android:id="@+id/button_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sacar Foto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expiration_text_input"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintBottom_toTopOf="@id/product_photo"
+        app:layout_constraintTop_toBottomOf="@+id/expiration_text_input"/>
+
+    <ImageView
+        android:id="@+id/product_photo"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_camera"
+
+        />
 
     <Button
         android:id="@+id/button_create_product"
@@ -76,5 +86,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/product_photo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
