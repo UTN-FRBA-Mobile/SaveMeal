@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.savemeal.databinding.FragmentCodePopupBinding
+import java.util.*
 
-class CodeDialogFragment: DialogFragment() {
+class CodeDialogFragment(private val reservationCode: String) : DialogFragment() {
 
     private var _binding: FragmentCodePopupBinding? = null
     private val binding get() = _binding!!
@@ -16,8 +17,9 @@ class CodeDialogFragment: DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCodePopupBinding.inflate(inflater, container, false)
+        _binding?.codigo?.text = reservationCode.uppercase(Locale.getDefault())
         return binding.root
     }
 }

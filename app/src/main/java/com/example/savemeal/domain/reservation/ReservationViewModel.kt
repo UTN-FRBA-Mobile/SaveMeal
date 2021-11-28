@@ -7,7 +7,7 @@ class ReservationViewModel : ViewModel() {
 
     private val reservationRepository: ReservationRepository = ReservationDI.provideReservationRepository()
 
-    fun getReservationDetail(reservationId: Int): ReservationOption {
+    fun getReservationDetail(reservationId: Int): ReservationDetail {
         return reservationRepository.getReservationDetail(reservationId)
     }
 }

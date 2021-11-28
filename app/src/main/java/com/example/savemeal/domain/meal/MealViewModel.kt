@@ -12,10 +12,3 @@ class MealViewModel : ViewModel() {
     }
 }
 
-data class MealDetail(
-    val id: Int,
-    val nombre: String,
-    val descripcion: String,
-    val disponibles: Int,
-    val expiracion: String
-)
