@@ -56,11 +56,9 @@ class ReservationDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonObtainCode.setOnClickListener {
-<<<<<<< HEAD
+
             val dialog = CodeDialogFragment(reservationCode)
-=======
-            val dialog = CodeDialogFragment()
->>>>>>> 0579e92 (Reservation cancel dialog)
+
             dialog.show(parentFragmentManager, "No se que es el tag")
         }
 
