@@ -5,4 +5,5 @@ interface ReservationRepository {
     suspend fun getReservations(): List<ReservationOption>
     fun getReservationDetail(reservationId: Int): ReservationDetail
     suspend fun cancelReservation(reservationId: Int)
+    suspend fun makeReservation(mealId: Int, businessId: Int)
 }

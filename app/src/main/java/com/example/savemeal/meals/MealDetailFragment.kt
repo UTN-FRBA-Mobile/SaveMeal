@@ -1,20 +1,28 @@
 package com.example.savemeal.meals
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
+import com.example.savemeal.R
 import com.example.savemeal.databinding.FragmentMealDetailBinding
+import com.example.savemeal.domain.meal.MealDetail
 import com.example.savemeal.domain.meal.MealViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.launch
 
 class MealDetailFragment : Fragment() {
     private var _binding: FragmentMealDetailBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: MealViewModel by viewModels()
+    private lateinit var meal: MealDetail
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +35,7 @@ class MealDetailFragment : Fragment() {
     }
 
     private fun bindUI(mealId: Int) {
-        val meal = viewModel.getMealDetail(mealId)
+        meal = viewModel.getMealDetail(mealId)
         _binding?.apply {
             expirationDate.text = meal.expiracion
             title.text = meal.nombre
@@ -44,7 +52,29 @@ class MealDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonBookMeal.setOnClickListener {
-            //TODO: mostrar popUp de confirmacion y reservar
+            showConfirmationPopUp()
+        }
+    }
+
+    private fun showConfirmationPopUp() {
+        AlertDialog.Builder(context)
+            .setMessage("¿Desea reservar esta comida?")
+            .setNegativeButton("No") { _, _ -> }
+            .setPositiveButton("Si") { _, _ ->
+                makeReservation()
+
+
+            }
+            .show()
+    }
+
+    private fun makeReservation() {
+        viewModel.viewModelScope.launch {
+            viewModel.makeReservation(meal)
+            val action = R.id.action_productViewFragment_to_availableMealsFragment
+            findNavController().navigate(action)
+            Toast.makeText(context, "Reserva creada", Toast.LENGTH_LONG).show()
+
         }
     }
 }

@@ -35,8 +35,14 @@ class InMemoryReservationRepository(private val reservationService: ReservationS
         reservationService.cancelReservation(reservationId)
     }
 
+    override suspend fun makeReservation(mealId: Int, businessId: Int) {
+        reservationService.createReservation(NewReservation(mealId, businessId))
+    }
+
     private fun MutableList<ReservationDetail>.toReservationOption(): List<ReservationOption> {
         return this.map { ReservationOption(it.reservationId, it.comida.nombre, it.getStatus()) }
     }
+
+    data class NewReservation(val idComercio: Int,val prodId: Int, val userId: Int = 2 )
 }
 

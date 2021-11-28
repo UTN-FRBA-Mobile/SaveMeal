@@ -1,11 +1,10 @@
 package com.example.savemeal.domain.reservation
 
+import com.example.savemeal.infrastructure.InMemoryReservationRepository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.DELETE
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ReservationService {
 
@@ -16,6 +15,9 @@ interface ReservationService {
     suspend fun cancelReservation(
         @Path("id")
         reservationId: Int)
+
+    @POST("reservation/token")
+    suspend fun createReservation(@Body reservation: InMemoryReservationRepository.NewReservation)
 
 
     companion object {
