@@ -7,14 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.example.savemeal.CodeDialogFragment
 import com.example.savemeal.R
 import com.example.savemeal.databinding.FragmentReservationDetailBinding
 import com.example.savemeal.domain.reservation.ReservationViewModel
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.launch
 
 class ReservationDetailFragment : Fragment() {
     private var _binding: FragmentReservationDetailBinding? = null
@@ -69,7 +70,7 @@ class ReservationDetailFragment : Fragment() {
             warning_dialog.setMessage("¿Desea cancelar la reserva?")
                 .setNegativeButton("No"){ _, _->}
                 .setPositiveButton("Si"){dialog, which ->
-                    viewModel.cancelReservation(reservationId)
+                    cancelReservation()
                     val action = R.id.action_reservationDetailFragment_to_reservationsFragment
                     findNavController().navigate(action)
                     Toast.makeText(context, "Reserva cancelada", Toast.LENGTH_LONG).show()
@@ -78,5 +79,11 @@ class ReservationDetailFragment : Fragment() {
 
         }
 
+    }
+
+    private fun cancelReservation() {
+        viewModel.viewModelScope.launch {
+            viewModel.cancelReservation(reservationId)
+        }
     }
 }

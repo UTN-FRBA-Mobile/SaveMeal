@@ -11,7 +11,7 @@ class ReservationViewModel : ViewModel() {
         return reservationRepository.getReservationDetail(reservationId)
     }
 
-    fun cancelReservation(reservationId: Int){
+    suspend fun cancelReservation(reservationId: Int){
         reservationRepository.cancelReservation(reservationId)
     }
 

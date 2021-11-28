@@ -30,9 +30,9 @@ class InMemoryReservationRepository(private val reservationService: ReservationS
         return reservations.find { it.reservationId == reservationId }!!
     }
 
-    override fun cancelReservation(reservationId: Int) {
+    override suspend fun cancelReservation(reservationId: Int) {
        reservations.removeIf{it.reservationId == reservationId }
-        //reservationService.cancelReservation(reservationId)
+        reservationService.cancelReservation(reservationId)
     }
 
     private fun MutableList<ReservationDetail>.toReservationOption(): List<ReservationOption> {

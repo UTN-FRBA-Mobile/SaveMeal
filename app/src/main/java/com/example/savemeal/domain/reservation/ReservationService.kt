@@ -5,14 +5,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.DELETE
+import retrofit2.http.Path
 
 interface ReservationService {
 
     @GET("reservation/user/2")
     suspend fun getReservations(): List<ReservationDetail>
 
-    @DELETE("reservation/:reservationId")
-    fun cancelReservation(reservationId: Int)
+    @DELETE("reservation/{id}")
+    suspend fun cancelReservation(
+        @Path("id")
+        reservationId: Int)
 
 
     companion object {
