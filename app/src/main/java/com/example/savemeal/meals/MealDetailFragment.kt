@@ -46,10 +46,8 @@ class MealDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttonObtainCode.setOnClickListener {
-
-            val dialog = CodeDialogFragment()
-            dialog.show(parentFragmentManager, "No se que es el tag")
+        binding.buttonBookMeal.setOnClickListener {
+        //TODO: mostrar popUp de confirmacion y reservar
         }
     }
 }

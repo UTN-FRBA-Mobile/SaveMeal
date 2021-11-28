@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.savemeal.CodeDialogFragment
 import com.example.savemeal.databinding.FragmentReservationDetailBinding
 
 class ReservationDetailFragment : Fragment() {
@@ -26,5 +27,14 @@ class ReservationDetailFragment : Fragment() {
         _binding = null
 
         super.onDestroyView()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttonObtainCode.setOnClickListener {
+
+            val dialog = CodeDialogFragment()
+            dialog.show(parentFragmentManager, "No se que es el tag")
+        }
     }
 }
