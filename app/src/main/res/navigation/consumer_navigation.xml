@@ -36,5 +36,9 @@
         android:id="@+id/reservationDetailFragment"
         android:name="com.example.savemeal.reservations.ReservationDetailFragment"
         android:label="Detalle de la reserva"
-        tools:layout="@layout/fragment_reservation_detail" />
+        tools:layout="@layout/fragment_reservation_detail" >
+        <argument
+            android:name="reservationId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

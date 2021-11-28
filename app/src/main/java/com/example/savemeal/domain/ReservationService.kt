@@ -1,0 +1,30 @@
+package com.example.savemeal.domain
+
+import com.example.savemeal.reservations.ReservationOption
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+
+interface ReservationService {
+
+    @GET("reservation/user/2")
+    suspend fun getReservations(): List<ReservationOption>
+
+    companion object {
+        private const val BASE_URL = "https://save-meal-api.herokuapp.com/"
+
+        fun create(): ReservationService {
+
+            val client = OkHttpClient.Builder()
+                .build()
+
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ReservationService::class.java)
+        }
+    }
+}
