@@ -27,7 +27,11 @@
         android:id="@+id/productViewFragment"
         android:name="com.example.savemeal.ProductViewFragment"
         android:label="Detalle"
-        tools:layout="@layout/fragment_product_view" />
+        tools:layout="@layout/fragment_product_view" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/reservationDetailFragment"
         android:name="com.example.savemeal.reservations.ReservationDetailFragment"

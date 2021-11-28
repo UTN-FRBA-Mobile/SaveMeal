@@ -8,7 +8,7 @@ import retrofit2.http.GET
 interface MealService {
 
     @GET("products/available")
-    suspend fun getMeals(): List<MealOption>
+    suspend fun getMeals(): List<MealDetail>
 
     companion object {
         private const val BASE_URL = "https://save-meal-api.herokuapp.com/"

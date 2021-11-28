@@ -2,6 +2,7 @@ package com.example.savemeal.available_meals
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -24,8 +25,9 @@ class AvailableMealAdapter : ListAdapter<MealOption, RecyclerView.ViewHolder>(Me
         val mealOption = getItem(position)
         (holder as MealOptionViewHolder).bind(mealOption)
 
+        val bundle = bundleOf("id" to mealOption.id)
         holder.itemView.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_availableMealsFragment_to_productViewFragment)
+            Navigation.createNavigateOnClickListener(R.id.action_availableMealsFragment_to_productViewFragment, bundle)
         )
     }
 

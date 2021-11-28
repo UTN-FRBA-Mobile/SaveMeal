@@ -9,11 +9,11 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:text="Una comida"
         android:layout_centerHorizontal="true"
-        android:textSize="32dp"
-        android:paddingBottom="16dp"/>
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="Una comida"
+        android:textSize="32dp" />
 
     <ImageView
         android:id="@+id/photo"
@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/title"/>
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/photo"
@@ -37,7 +37,9 @@
             <TextView
                 android:padding="4dp"
                 android:text="Porciones disponibles" />
+
             <TextView
+                android:id="@+id/availables"
                 android:gravity="right"
                 android:padding="4dip"
                 android:text="4" />
@@ -46,7 +48,9 @@
             <TextView
                 android:padding="4dp"
                 android:text="Direccióm" />
+
             <TextView
+                android:id="@+id/shopAddress"
                 android:gravity="right"
                 android:padding="4dip"
                 android:text="Calle Falsa 1234" />
@@ -55,7 +59,9 @@
             <TextView
                 android:padding="4dp"
                 android:text="Horario de cierre" />
+
             <TextView
+                android:id="@+id/shopClosingTime"
                 android:gravity="right"
                 android:padding="4dip"
                 android:text="23:30" />
@@ -64,7 +70,9 @@
             <TextView
                 android:padding="4dp"
                 android:text="Fecha de vencimiento" />
+
             <TextView
+                android:id="@+id/expirationDate"
                 android:gravity="right"
                 android:padding="4dip"
                 android:text="01/01/2022" />
