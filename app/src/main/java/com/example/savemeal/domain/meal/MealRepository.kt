@@ -1,4 +1,4 @@
-package com.example.savemeal.domain
+package com.example.savemeal.domain.meal
 
 interface MealRepository {
 

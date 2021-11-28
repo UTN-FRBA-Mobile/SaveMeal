@@ -1,8 +1,7 @@
-package com.example.savemeal.domain
+package com.example.savemeal.domain.reservation
 
 import androidx.lifecycle.ViewModel
 import com.example.savemeal.ReservationDI
-import com.example.savemeal.reservations.ReservationOption
 
 class ReservationViewModel : ViewModel() {
 

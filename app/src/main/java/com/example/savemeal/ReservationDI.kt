@@ -1,7 +1,7 @@
 package com.example.savemeal
 
-import com.example.savemeal.domain.ReservationRepository
-import com.example.savemeal.domain.ReservationService
+import com.example.savemeal.domain.reservation.ReservationRepository
+import com.example.savemeal.domain.reservation.ReservationService
 import com.example.savemeal.infrastructure.InMemoryReservationRepository
 
 object ReservationDI {

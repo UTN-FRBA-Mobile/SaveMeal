@@ -1,11 +1,9 @@
-package com.example.savemeal.domain
+package com.example.savemeal.domain.reservation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.savemeal.MealDI
 import com.example.savemeal.ReservationDI
-import com.example.savemeal.reservations.ReservationOption
 
 class ReservationListViewModel : ViewModel() {
 

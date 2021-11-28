@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.savemeal.databinding.FragmentCodePopupBinding
-import com.example.savemeal.databinding.FragmentProductViewBinding
 
 class CodeDialogFragment: DialogFragment() {
 

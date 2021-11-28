@@ -1,4 +1,4 @@
-package com.example.savemeal.available_meals
+package com.example.savemeal.meals
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.savemeal.databinding.FragmentAvailableMealsBinding
-import com.example.savemeal.domain.MealListViewModel
+import com.example.savemeal.domain.meal.MealListViewModel
 import kotlinx.coroutines.launch
 
 class AvailableMealsFragment : Fragment() {

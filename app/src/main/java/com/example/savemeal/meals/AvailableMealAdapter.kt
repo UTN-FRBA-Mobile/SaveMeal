@@ -1,4 +1,4 @@
-package com.example.savemeal.available_meals
+package com.example.savemeal.meals
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.savemeal.R
 import com.example.savemeal.databinding.MealOptionItemBinding
-import com.example.savemeal.domain.MealOption
+import com.example.savemeal.domain.meal.MealOption
 
 class AvailableMealAdapter : ListAdapter<MealOption, RecyclerView.ViewHolder>(MealDiffCallback()) {
 

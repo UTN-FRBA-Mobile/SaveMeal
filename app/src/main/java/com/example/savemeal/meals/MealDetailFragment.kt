@@ -1,17 +1,18 @@
-package com.example.savemeal
+package com.example.savemeal.meals
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.savemeal.databinding.FragmentProductViewBinding
-import com.example.savemeal.domain.MealDetail
-import com.example.savemeal.domain.MealViewModel
+import com.example.savemeal.CodeDialogFragment
+import com.example.savemeal.databinding.FragmentMealDetailBinding
+import com.example.savemeal.domain.meal.MealDetail
+import com.example.savemeal.domain.meal.MealViewModel
 
-class ProductViewFragment : Fragment() {
-    private var _binding: FragmentProductViewBinding? = null
+class MealDetailFragment : Fragment() {
+    private var _binding: FragmentMealDetailBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: MealViewModel by viewModels()
@@ -20,7 +21,7 @@ class ProductViewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProductViewBinding.inflate(inflater, container, false)
+        _binding = FragmentMealDetailBinding.inflate(inflater, container, false)
         val mealId = arguments?.getInt("id")!!
         bindUI(mealId)
         return binding.root

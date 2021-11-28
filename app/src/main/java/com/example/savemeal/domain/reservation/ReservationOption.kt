@@ -1,4 +1,4 @@
-package com.example.savemeal.reservations
+package com.example.savemeal.domain.reservation
 
 data class ReservationOption(
     val reservationId: Int,

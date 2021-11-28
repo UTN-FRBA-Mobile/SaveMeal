@@ -1,6 +1,4 @@
-package com.example.savemeal.domain
-
-import com.example.savemeal.reservations.ReservationOption
+package com.example.savemeal.domain.reservation
 
 interface ReservationRepository {
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/availableMealsFragment"
-        android:name="com.example.savemeal.available_meals.AvailableMealsFragment"
+        android:name="com.example.savemeal.meals.AvailableMealsFragment"
         android:label="Comidas disponibles"
         tools:layout="@layout/fragment_available_meals">
         <action
@@ -25,9 +25,9 @@
     </fragment>
     <fragment
         android:id="@+id/productViewFragment"
-        android:name="com.example.savemeal.ProductViewFragment"
+        android:name="com.example.savemeal.meals.MealDetailFragment"
         android:label="Detalle"
-        tools:layout="@layout/fragment_product_view" >
+        tools:layout="@layout/fragment_meal_detail" >
         <argument
             android:name="id"
             app:argType="integer" />

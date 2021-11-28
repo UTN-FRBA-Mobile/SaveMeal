@@ -1,9 +1,11 @@
 package com.example.savemeal.infrastructure
 
-import com.example.savemeal.domain.*
-import com.example.savemeal.reservations.ReservationOption
+import com.example.savemeal.domain.reservation.ReservationRepository
+import com.example.savemeal.domain.reservation.ReservationService
+import com.example.savemeal.domain.reservation.ReservationOption
 
-class InMemoryReservationRepository(private val reservationService: ReservationService) : ReservationRepository {
+class InMemoryReservationRepository(private val reservationService: ReservationService) :
+    ReservationRepository {
 
     private val reservations: MutableList<ReservationOption> = mutableListOf()
 

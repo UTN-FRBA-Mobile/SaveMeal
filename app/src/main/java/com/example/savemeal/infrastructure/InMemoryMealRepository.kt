@@ -1,9 +1,9 @@
 package com.example.savemeal.infrastructure
 
-import com.example.savemeal.domain.MealDetail
-import com.example.savemeal.domain.MealOption
-import com.example.savemeal.domain.MealRepository
-import com.example.savemeal.domain.MealService
+import com.example.savemeal.domain.meal.MealDetail
+import com.example.savemeal.domain.meal.MealOption
+import com.example.savemeal.domain.meal.MealRepository
+import com.example.savemeal.domain.meal.MealService
 
 class InMemoryMealRepository(private val mealService: MealService) : MealRepository {
 

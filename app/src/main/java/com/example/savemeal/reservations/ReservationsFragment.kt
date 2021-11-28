@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.savemeal.databinding.FragmentReservationsBinding
-import com.example.savemeal.domain.ReservationListViewModel
+import com.example.savemeal.domain.reservation.ReservationListViewModel
 import kotlinx.coroutines.launch
 
 class ReservationsFragment : Fragment() {

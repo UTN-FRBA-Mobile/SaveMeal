@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.savemeal.R
 import com.example.savemeal.databinding.ReservationsOptionItemBinding
+import com.example.savemeal.domain.reservation.ReservationOption
 
 class ReservationsOptionAdapter :
     ListAdapter<ReservationOption, RecyclerView.ViewHolder>(ReservationDiffCallback()) {

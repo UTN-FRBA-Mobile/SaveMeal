@@ -1,4 +1,4 @@
-package com.example.savemeal.domain
+package com.example.savemeal.domain.meal
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
