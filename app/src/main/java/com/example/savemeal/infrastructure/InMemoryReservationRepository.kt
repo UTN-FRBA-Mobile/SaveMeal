@@ -30,6 +30,11 @@ class InMemoryReservationRepository(private val reservationService: ReservationS
         return reservations.find { it.reservationId == reservationId }!!
     }
 
+    override fun cancelReservation(reservationId: Int) {
+       reservations.removeIf{it.reservationId == reservationId }
+        //reservationService.cancelReservation(reservationId)
+    }
+
     private fun MutableList<ReservationDetail>.toReservationOption(): List<ReservationOption> {
         return this.map { ReservationOption(it.reservationId, it.comida.nombre, it.getStatus()) }
     }

@@ -10,5 +10,10 @@ class ReservationViewModel : ViewModel() {
     fun getReservationDetail(reservationId: Int): ReservationDetail {
         return reservationRepository.getReservationDetail(reservationId)
     }
+
+    fun cancelReservation(reservationId: Int){
+        reservationRepository.cancelReservation(reservationId)
+    }
+
 }
 

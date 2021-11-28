@@ -40,5 +40,8 @@
         <argument
             android:name="reservationId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_reservationDetailFragment_to_reservationsFragment"
+            app:destination="@id/reservationsFragment" />
     </fragment>
 </navigation>
