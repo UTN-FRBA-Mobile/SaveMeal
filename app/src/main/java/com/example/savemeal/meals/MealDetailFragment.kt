@@ -36,7 +36,7 @@ class MealDetailFragment : Fragment() {
             businessName.text = meal.business.businessName
             availables.text = meal.disponibles.toString()
             detail.text = meal.detalle
-            Picasso.with(requireContext()).load(meal.image).into(photo)
+            Picasso.with(requireContext()).load(meal.imagen).into(photo)
         }
     }
 

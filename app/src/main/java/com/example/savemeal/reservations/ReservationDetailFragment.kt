@@ -46,7 +46,7 @@ class ReservationDetailFragment : Fragment() {
             businessName.text = reservation.business.businessName
             availables.text = reservation.comida.disponibles.toString()
             detail.text = reservation.comida.detalle
-            Picasso.with(requireContext()).load(reservation.comida.image).into(photo)
+            Picasso.with(requireContext()).load(reservation.comida.imagen).into(photo)
         }
     }
 

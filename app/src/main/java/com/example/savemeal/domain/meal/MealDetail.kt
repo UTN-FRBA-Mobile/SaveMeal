@@ -7,6 +7,6 @@ data class MealDetail(
     val disponibles: Int,
     val expiracion: String,
     val porciones: String,
-    val image: String,
+    val imagen: String,
     val business: Business
 )
