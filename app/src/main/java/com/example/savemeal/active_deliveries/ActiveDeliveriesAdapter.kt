@@ -1,53 +1,57 @@
 package com.example.savemeal.active_deliveries
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.savemeal.R
+import com.example.savemeal.ShopProducts.ShopProduct
+import com.example.savemeal.databinding.ActiveDeliveryItemBinding
+import com.example.savemeal.databinding.ShopProductItemBinding
+import com.example.savemeal.domain.reservation.ReservationOption
 
-class ActiveDeliveriesAdapter(dataSet: ArrayList<String>) : RecyclerView.Adapter<ActiveDeliveriesAdapter.ViewHolder>(){
+class ActiveDeliveriesAdapter : ListAdapter<ReservationOption, RecyclerView.ViewHolder>(DeliveriesDiffCallback()) {
 
-    var dataSet:ArrayList<String>? = null
-
-    init{
-        this.dataSet = dataSet
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return DeliveryViewHolder(
+            ActiveDeliveryItemBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false))
     }
 
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val activeReservation = getItem(position)
+        (holder as DeliveryViewHolder).bind(activeReservation)
 
-    private lateinit var mListener: onItemClickListener
+        val bundle = bundleOf("productId" to activeReservation.reservationId)
 
-    interface onItemClickListener{
-        fun onItemClick(position:Int)
+
+        // TODO onclick listeners a los botones de editar y eliminat
+//        holder.itemView.setOnClickListener(
+//            Navigation.createNavigateOnClickListener(R.id.action_reservationsFragment_to_reservationDetailFragment)
+//        )
     }
 
-    fun setOnItemClickListener(listener: onItemClickListener){
-        mListener=listener
-    }
+    class DeliveryViewHolder(
+        val binding: ActiveDeliveryItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-    class ViewHolder(view: View, listener: onItemClickListener) : RecyclerView.ViewHolder(view){
-        var vista = view
-        var textView: TextView
-        init {
-            textView = vista.findViewById(R.id.delivery_title)
+        fun bind(item: ReservationOption) {
+            binding.productName.text = item.name
         }
     }
+}
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+private class DeliveriesDiffCallback : DiffUtil.ItemCallback<ReservationOption>() {
 
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.layout_active_deliveries, viewGroup, false)
-        return ViewHolder(view, mListener)
+    override fun areItemsTheSame(oldItem: ReservationOption, newItem: ReservationOption): Boolean {
+        return oldItem.reservationId == newItem.reservationId
     }
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val item = dataSet?.get(position)
-        viewHolder.textView?.text = item
+    override fun areContentsTheSame(
+        oldItem: ReservationOption,
+        newItem: ReservationOption
+    ): Boolean {
+        return oldItem == newItem
     }
-
-    override fun getItemCount(): Int {
-        return this.dataSet?.count()!!
-    }
-
 }

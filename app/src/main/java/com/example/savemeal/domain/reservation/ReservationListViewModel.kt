@@ -9,9 +9,15 @@ class ReservationListViewModel : ViewModel() {
 
     private val reservationRepository: ReservationRepository = ReservationDI.provideReservationRepository()
 
-    suspend fun getReservations(): LiveData<List<ReservationOption>> {
+    suspend fun getUserReservations(): LiveData<List<ReservationOption>> {
         val mutableLiveData = MutableLiveData<List<ReservationOption>>()
-        mutableLiveData.value = reservationRepository.getReservations()
+        mutableLiveData.value = reservationRepository.getUserReservations()
+        return mutableLiveData
+    }
+
+    suspend fun getBusinessReservations(): LiveData<List<ReservationOption>> {
+        val mutableLiveData = MutableLiveData<List<ReservationOption>>()
+        mutableLiveData.value = reservationRepository.getBusinessReservations()
         return mutableLiveData
     }
 

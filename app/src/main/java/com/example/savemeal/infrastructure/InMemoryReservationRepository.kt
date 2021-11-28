@@ -21,8 +21,13 @@ class InMemoryReservationRepository(private val reservationService: ReservationS
     }
 
 
-    override suspend fun getReservations(): List<ReservationOption> {
-        addMissingReservations(reservationService.getReservations())
+    override suspend fun getUserReservations(): List<ReservationOption> {
+        addMissingReservations(reservationService.getUserReservations())
+        return reservations.toReservationOption()
+    }
+
+    override suspend fun getBusinessReservations(): List<ReservationOption> {
+        addMissingReservations(reservationService.getBusinessReservations())
         return reservations.toReservationOption()
     }
 

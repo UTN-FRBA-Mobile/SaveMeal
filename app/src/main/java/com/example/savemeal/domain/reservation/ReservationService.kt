@@ -9,7 +9,10 @@ import retrofit2.http.*
 interface ReservationService {
 
     @GET("reservation/user/2")
-    suspend fun getReservations(): List<ReservationDetail>
+    suspend fun getUserReservations(): List<ReservationDetail>
+    
+    @GET("reservation/business/1")
+    suspend fun getBusinessReservations(): List<ReservationDetail>
 
     @DELETE("reservation/{id}")
     suspend fun cancelReservation(

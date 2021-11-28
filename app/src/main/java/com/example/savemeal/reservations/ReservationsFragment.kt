@@ -34,7 +34,7 @@ class ReservationsFragment : Fragment() {
 
     private fun subscribe(adapter: ReservationsOptionAdapter) {
         listViewModel.viewModelScope.launch {
-            listViewModel.getReservations().observe(viewLifecycleOwner) { meals ->
+            listViewModel.getUserReservations().observe(viewLifecycleOwner) { meals ->
                 adapter.submitList(meals)
             }
         }
