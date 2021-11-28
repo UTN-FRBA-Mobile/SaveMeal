@@ -35,7 +35,13 @@ class InMemoryShopProductRepository(private val shopProductService: ShopProductS
         shopProductService.deleteProduct(productId)
     }
 
+    override suspend fun createProduct( idComercio: Int, nombre: String,  detalle: String,  expiracion: String,  porciones: Int,  imagen: String) {
+        shopProductService.createProduct(NewProduct(idComercio, nombre, detalle, expiracion, porciones, imagen))
+    }
+
     private fun MutableList<ShopProductDetail>.toShopProductOption(): List<ShopProduct> {
         return this.map { ShopProduct(it.id, it.nombre) }
     }
+
+    data class NewProduct(val idComercio: Int,val nombre: String, val detalle: String, val expiracion: String, val porciones: Int, val imagen: String )
 }
