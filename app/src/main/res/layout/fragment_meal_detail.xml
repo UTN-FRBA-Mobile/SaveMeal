@@ -57,7 +57,7 @@
         <TableRow>
             <TextView
                 android:padding="4dp"
-                android:text="Direccióm" />
+                android:text="Dirección" />
 
             <TextView
                 android:id="@+id/businessAddress"

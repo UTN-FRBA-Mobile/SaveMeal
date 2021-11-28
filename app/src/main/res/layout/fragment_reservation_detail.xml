@@ -37,10 +37,10 @@
         <TableRow>
             <TextView
                 android:padding="4dp"
-                android:text="Porciones reservadas" />
+                android:text="Porciones disponibles" />
 
             <TextView
-                android:id="@+id/reserved"
+                android:id="@+id/availables"
                 android:gravity="right"
                 android:padding="4dip"
                 android:text="4" />
@@ -48,13 +48,22 @@
         <TableRow>
             <TextView
                 android:padding="4dp"
-                android:text="Direccióm" />
+                android:text="Comercio" />
+
+            <TextView
+                android:id="@+id/businessName"
+                android:gravity="right"
+                android:padding="4dip"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Dirección" />
 
             <TextView
                 android:id="@+id/businessAddress"
                 android:gravity="right"
-                android:padding="4dip"
-                android:text="Calle Falsa 1234" />
+                android:padding="4dip"/>
         </TableRow>
         <TableRow>
             <TextView
@@ -64,8 +73,7 @@
             <TextView
                 android:id="@+id/businessHours"
                 android:gravity="right"
-                android:padding="4dip"
-                android:text="23:30" />
+                android:padding="4dip" />
         </TableRow>
         <TableRow>
             <TextView
@@ -75,8 +83,17 @@
             <TextView
                 android:id="@+id/expirationDate"
                 android:gravity="right"
-                android:padding="4dip"
-                android:text="01/01/2022" />
+                android:padding="4dip" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:padding="4dp"
+                android:text="Detalle" />
+
+            <TextView
+                android:id="@+id/detail"
+                android:gravity="right"
+                android:padding="4dip" />
         </TableRow>
     </TableLayout>
 
