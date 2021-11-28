@@ -14,6 +14,7 @@ import com.example.savemeal.CodeDialogFragment
 import com.example.savemeal.R
 import com.example.savemeal.databinding.FragmentReservationDetailBinding
 import com.example.savemeal.domain.reservation.ReservationViewModel
+import com.squareup.picasso.Picasso
 
 class ReservationDetailFragment : Fragment() {
     private var _binding: FragmentReservationDetailBinding? = null
@@ -44,6 +45,7 @@ class ReservationDetailFragment : Fragment() {
             businessName.text = reservation.business.businessName
             availables.text = reservation.comida.disponibles.toString()
             detail.text = reservation.comida.detalle
+            Picasso.with(requireContext()).load(reservation.comida.image).into(photo)
         }
     }
 

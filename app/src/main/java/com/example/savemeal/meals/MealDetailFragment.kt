@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.savemeal.databinding.FragmentMealDetailBinding
 import com.example.savemeal.domain.meal.MealViewModel
+import com.squareup.picasso.Picasso
 
 class MealDetailFragment : Fragment() {
     private var _binding: FragmentMealDetailBinding? = null
@@ -35,6 +36,7 @@ class MealDetailFragment : Fragment() {
             businessName.text = meal.business.businessName
             availables.text = meal.disponibles.toString()
             detail.text = meal.detalle
+            Picasso.with(requireContext()).load(meal.image).into(photo)
         }
     }
 
