@@ -6,7 +6,7 @@ import com.example.savemeal.domain.meal.MealDetail
 data class ReservationDetail(
     val reservationId: Int,
     val delivered: Boolean,
-    val code: String,
+    val token: String,
     val comida: MealDetail,
     val business: Business
 ) {

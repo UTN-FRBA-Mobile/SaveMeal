@@ -16,6 +16,7 @@ class ReservationDetailFragment : Fragment() {
 
     private val viewModel: ReservationViewModel by viewModels()
 
+    private var reservationCode: String = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,6 +30,7 @@ class ReservationDetailFragment : Fragment() {
 
     private fun bindUI(reservationId: Int) {
         val reservation = viewModel.getReservationDetail(reservationId)
+        reservationCode = reservation.token
         _binding?.apply {
             expirationDate.text = reservation.comida.expiracion
             title.text = reservation.comida.nombre
@@ -49,8 +51,7 @@ class ReservationDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonObtainCode.setOnClickListener {
-
-            val dialog = CodeDialogFragment()
+            val dialog = CodeDialogFragment(reservationCode)
             dialog.show(parentFragmentManager, "No se que es el tag")
         }
     }
