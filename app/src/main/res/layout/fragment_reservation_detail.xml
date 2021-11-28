@@ -51,7 +51,7 @@
                 android:text="Direccióm" />
 
             <TextView
-                android:id="@+id/shopAddress"
+                android:id="@+id/businessAddress"
                 android:gravity="right"
                 android:padding="4dip"
                 android:text="Calle Falsa 1234" />
@@ -62,7 +62,7 @@
                 android:text="Horario de cierre" />
 
             <TextView
-                android:id="@+id/shopClosingTime"
+                android:id="@+id/businessHours"
                 android:gravity="right"
                 android:padding="4dip"
                 android:text="23:30" />
