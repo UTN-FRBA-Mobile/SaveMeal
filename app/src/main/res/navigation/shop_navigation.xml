@@ -14,5 +14,14 @@
         android:id="@+id/shopProductsFragment"
         android:name="com.example.savemeal.ShopProducts.ShopProductsFragment"
         android:label="Mis Productos"
-        tools:layout="@layout/fragment_shop_products" />
+        tools:layout="@layout/fragment_shop_products" >
+        <action
+            android:id="@+id/action_shopProductsFragment_to_shopProductRegisterFragment"
+            app:destination="@id/shopProductRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopProductRegisterFragment"
+        android:name="com.example.savemeal.ShopProducts.ShopProductRegisterFragment"
+        android:label="Nuevo Producto"
+        tools:layout="@layout/fragment_product_register"/>
 </navigation>

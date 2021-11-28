@@ -8,29 +8,20 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.savemeal.R
+import com.example.savemeal.databinding.FragmentProductRegisterBinding
 import com.example.savemeal.databinding.FragmentShopProductsBinding
 
-class ShopProductsFragment : Fragment() {
-    private var _binding: FragmentShopProductsBinding? = null
+class ShopProductRegisterFragment : Fragment() {
+    private var _binding: FragmentProductRegisterBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentShopProductsBinding.inflate(inflater, container, false)
+        _binding = FragmentProductRegisterBinding.inflate(inflater, container, false)
 
-        binding.productsRecycler.layoutManager = LinearLayoutManager(context)
-        binding.productsRecycler.adapter = ShopProductsAdapter()
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.fab.setOnClickListener{
-            val action = R.id.action_shopProductsFragment_to_shopProductRegisterFragment
-            findNavController().navigate(action)
-        }
     }
 
     override fun onDestroyView() {
