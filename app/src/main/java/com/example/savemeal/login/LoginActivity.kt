@@ -2,9 +2,11 @@ package com.example.savemeal.login
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.savemeal.R
 import com.example.savemeal.databinding.ActivityLoginBinding
+import com.example.savemeal.firebase.MyPreferences
 
 class LoginActivity : AppCompatActivity() {
 
@@ -18,5 +20,15 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        //display token for notificactions
+        logFirebaseToken()
+    }
+
+    private fun logFirebaseToken() {
+        val firebaseTokenText = MyPreferences.getFirebaseToken(this)
+        if (firebaseTokenText != null) {
+            Log.i("My Firebase Token", firebaseTokenText)
+        }
     }
 }
