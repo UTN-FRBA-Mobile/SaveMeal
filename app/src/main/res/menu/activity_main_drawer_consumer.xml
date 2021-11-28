@@ -8,9 +8,6 @@
             android:id="@+id/availableMealsFragment"
             android:title="Comidas Disponibles" />
         <item
-            android:id="@+id/profileFragment"
-            android:title="Mi Perfil" />
-        <item
             android:id="@+id/reservationsFragment"
             android:title="Mis Reservas" />
     </group>

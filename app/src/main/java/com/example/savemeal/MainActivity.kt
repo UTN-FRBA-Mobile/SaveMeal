@@ -36,17 +36,24 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
         if (isShop){
+            navView.menu.clear() //clear old inflated items.
+            navView.inflateMenu(R.menu.activity_main_drawer_shop)
             navController.setGraph(R.navigation.shop_navigation)
+            appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.activeDeliveriesFragment, R.id.shopProductsFragment
+                ), drawerLayout
+            )
         } else {
+            navView.menu.clear() //clear old inflated items.
+            navView.inflateMenu(R.menu.activity_main_drawer_consumer)
             navController.setGraph(R.navigation.consumer_navigation)
+            appBarConfiguration = AppBarConfiguration(
+                setOf(
+                    R.id.availableMealsFragment, R.id.reservationsFragment
+                ), drawerLayout
+            )
         }
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.availableMealsFragment, R.id.profileFragment, R.id.reservationsFragment
-            ), drawerLayout
-        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

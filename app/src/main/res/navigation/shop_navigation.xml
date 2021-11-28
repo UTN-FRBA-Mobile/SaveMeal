@@ -8,6 +8,11 @@
     <fragment
         android:id="@+id/activeDeliveriesFragment"
         android:name="com.example.savemeal.active_deliveries.ActiveDeliveriesFragment"
-        android:label="fragment_active_deliveries"
+        android:label="Entregas Activas"
         tools:layout="@layout/fragment_active_deliveries" />
+    <fragment
+        android:id="@+id/shopProductsFragment"
+        android:name="com.example.savemeal.ShopProducts.ShopProductsFragment"
+        android:label="Mis Productos"
+        tools:layout="@layout/fragment_shop_products" />
 </navigation>

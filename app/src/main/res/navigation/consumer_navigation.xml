@@ -24,11 +24,6 @@
             app:destination="@id/reservationDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.savemeal.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
         android:id="@+id/productViewFragment"
         android:name="com.example.savemeal.ProductViewFragment"
         android:label="Detalle"
@@ -37,9 +32,5 @@
         android:id="@+id/reservationDetailFragment"
         android:name="com.example.savemeal.reservations.ReservationDetailFragment"
         android:label="Detalle de la reserva"
-        tools:layout="@layout/fragment_reservation_detail" >
-        <action
-            android:id="@+id/action_reservationDetailFragment_to_reservationsFragment"
-            app:destination="@id/reservationsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_reservation_detail" />
 </navigation>
