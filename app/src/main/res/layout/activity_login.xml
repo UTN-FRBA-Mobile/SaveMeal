@@ -17,8 +17,4 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/login_navigation"/>
 
-    <EditText
-        android:id="@+id/firebaseToken"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </FrameLayout>
