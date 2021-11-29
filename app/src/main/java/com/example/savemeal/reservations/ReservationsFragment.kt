@@ -33,11 +33,23 @@ class ReservationsFragment : Fragment() {
     }
 
     private fun subscribe(adapter: ReservationsOptionAdapter) {
+        showSpinner()
         listViewModel.viewModelScope.launch {
             listViewModel.getUserReservations().observe(viewLifecycleOwner) { meals ->
                 adapter.submitList(meals)
+                hideSpinner()
             }
         }
+    }
+
+    private fun hideSpinner() {
+        binding.spinner.visibility = View.GONE
+        binding.reservasRecycler.visibility = View.VISIBLE
+    }
+
+    private fun showSpinner() {
+        binding.spinner.visibility = View.VISIBLE
+        binding.reservasRecycler.visibility = View.GONE
     }
 
     override fun onDestroyView() {
