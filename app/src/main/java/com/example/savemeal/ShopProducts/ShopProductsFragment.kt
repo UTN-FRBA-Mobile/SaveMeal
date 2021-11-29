@@ -23,8 +23,7 @@ class ShopProductsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val listViewModel: ShopProductListViewModel by viewModels()
-    private val adapter =
-        ShopProductsAdapter({ id -> onDeleteProduct(id) }, { id -> onShowProduct(id) })
+    private lateinit var adapter : ShopProductsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +32,8 @@ class ShopProductsFragment : Fragment() {
         _binding = FragmentShopProductsBinding.inflate(inflater, container, false)
 
         binding.productsRecycler.layoutManager = LinearLayoutManager(context)
+
+        adapter = ShopProductsAdapter({ id -> onDeleteProduct(id) }, { id -> onShowProduct(id) })
 
         binding.productsRecycler.adapter = adapter
         subscribeProducts()
