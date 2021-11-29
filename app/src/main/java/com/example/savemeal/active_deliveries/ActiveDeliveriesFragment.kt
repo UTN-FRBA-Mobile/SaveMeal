@@ -19,7 +19,7 @@ class ActiveDeliveriesFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val listViewModel: ReservationListViewModel by viewModels()
-    private val adapter = ActiveDeliveriesAdapter({ id -> onDeleteDelivery(id) }, { id -> onDelivered(id) })
+    private lateinit var adapter: ActiveDeliveriesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +28,7 @@ class ActiveDeliveriesFragment : Fragment() {
         _binding = FragmentActiveDeliveriesBinding.inflate(inflater, container, false)
 
         binding.entregasRecyclerView.layoutManager = LinearLayoutManager(context)
+        adapter = ActiveDeliveriesAdapter({ id -> onDeleteDelivery(id) }, { id -> onDelivered(id) })
         binding.entregasRecyclerView.adapter = adapter
 
         subscribe()
