@@ -10,17 +10,18 @@ interface ReservationService {
 
     @GET("reservation/user/2")
     suspend fun getUserReservations(): List<ReservationDetail>
-    
-    @GET("reservation/business/1")
+
+    @GET("reservation/business/1/active")
     suspend fun getBusinessReservations(): List<ReservationDetail>
 
     @DELETE("reservation/{id}")
-    suspend fun cancelReservation(
-        @Path("id")
-        reservationId: Int)
+    suspend fun cancelReservation(@Path("id") reservationId: Int)
 
     @POST("reservation/token")
     suspend fun createReservation(@Body reservation: InMemoryReservationRepository.NewReservation)
+
+    @PUT("reservation/{id}")
+    suspend fun markReservationAsDelivered(@Path("id") reservationId: Int)
 
 
     companion object {

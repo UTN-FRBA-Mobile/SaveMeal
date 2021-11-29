@@ -2,42 +2,46 @@ package com.example.savemeal.active_deliveries
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.savemeal.ShopProducts.ShopProduct
 import com.example.savemeal.databinding.ActiveDeliveryItemBinding
-import com.example.savemeal.databinding.ShopProductItemBinding
 import com.example.savemeal.domain.reservation.ReservationOption
 
-class ActiveDeliveriesAdapter : ListAdapter<ReservationOption, RecyclerView.ViewHolder>(DeliveriesDiffCallback()) {
+class ActiveDeliveriesAdapter(
+    private val onDeleteItem: (Int) -> Unit,
+    private val onDeliveredItem: (Int) -> Unit
+) : ListAdapter<ReservationOption, RecyclerView.ViewHolder>(DeliveriesDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return DeliveryViewHolder(
             ActiveDeliveryItemBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false))
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val activeReservation = getItem(position)
-        (holder as DeliveryViewHolder).bind(activeReservation)
-
-        val bundle = bundleOf("productId" to activeReservation.reservationId)
-
-
-        // TODO onclick listeners a los botones de editar y eliminat
-//        holder.itemView.setOnClickListener(
-//            Navigation.createNavigateOnClickListener(R.id.action_reservationsFragment_to_reservationDetailFragment)
-//        )
+        (holder as DeliveryViewHolder).bind(activeReservation, onDeleteItem, onDeliveredItem)
     }
 
     class DeliveryViewHolder(
         val binding: ActiveDeliveryItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: ReservationOption) {
+        fun bind(
+            item: ReservationOption,
+            onDeleteItem: (Int) -> Unit,
+            onDeliveredItem: (Int) -> Unit
+        ) {
             binding.productName.text = item.name
+            binding.deleteButton.setOnClickListener {
+                onDeleteItem(item.reservationId)
+            }
+            binding.checkButton.setOnClickListener {
+                onDeliveredItem(item.reservationId)
+            }
         }
     }
 }

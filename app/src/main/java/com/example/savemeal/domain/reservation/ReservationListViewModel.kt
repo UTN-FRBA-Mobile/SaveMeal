@@ -21,5 +21,13 @@ class ReservationListViewModel : ViewModel() {
         return mutableLiveData
     }
 
+    suspend fun deleteProduct(reservationId: Int) {
+        reservationRepository.cancelReservation(reservationId)
+    }
+
+    suspend fun markDeliveredProduct(reservationId: Int) {
+        reservationRepository.markReservationAsDelivered(reservationId)
+    }
+
 }
 
