@@ -2,7 +2,7 @@ package com.example.savemeal.domain.product;
 
 data class ShopProductDetail (
         val id: Int,
-        val nombre: String,
+        var nombre: String,
         val detalle: String,
         val expiracion: String,
         val idComercio: Int,
