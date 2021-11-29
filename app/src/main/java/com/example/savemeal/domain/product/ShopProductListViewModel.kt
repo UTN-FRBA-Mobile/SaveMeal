@@ -14,4 +14,8 @@ class ShopProductListViewModel: ViewModel() {
         mutableLiveData.value = shopProductRepository.getShopProducts()
         return mutableLiveData
     }
+
+    suspend fun deleteProduct(productId: Int) {
+        shopProductRepository.deleteProduct(productId)
+    }
 }
