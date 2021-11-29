@@ -1,7 +1,6 @@
-package com.example.savemeal.meals
+package com.example.savemeal.meals.consumer
 
 import android.app.AlertDialog
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +14,8 @@ import com.example.savemeal.R
 import com.example.savemeal.databinding.FragmentMealDetailBinding
 import com.example.savemeal.domain.meal.MealDetail
 import com.example.savemeal.domain.meal.MealViewModel
-import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import android.graphics.BitmapFactory
-import android.util.Base64
 import com.google.android.gms.common.util.Base64Utils
 
 

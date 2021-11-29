@@ -1,4 +1,4 @@
-package com.example.savemeal.meals
+package com.example.savemeal.meals.consumer
 
 import android.os.Bundle
 import android.view.LayoutInflater

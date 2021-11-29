@@ -1,4 +1,4 @@
-package com.example.savemeal.ShopProducts
+package com.example.savemeal.meals.shop
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -10,20 +10,19 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.savemeal.R
 import com.example.savemeal.databinding.FragmentShopProductsBinding
-import com.example.savemeal.domain.product.ShopProductListViewModel
+import com.example.savemeal.domain.meal.ShopMealListViewModel
 import kotlinx.coroutines.launch
 
-class ShopProductsFragment : Fragment() {
+class ShopMealsFragment : Fragment() {
     private var _binding: FragmentShopProductsBinding? = null
     private val binding get() = _binding!!
 
-    private val listViewModel: ShopProductListViewModel by viewModels()
-    private lateinit var adapter : ShopProductsAdapter
+    private val listViewModel: ShopMealListViewModel by viewModels()
+    private lateinit var adapter : ShopMealAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,47 +32,47 @@ class ShopProductsFragment : Fragment() {
 
         binding.productsRecycler.layoutManager = LinearLayoutManager(context)
 
-        adapter = ShopProductsAdapter({ id -> onDeleteProduct(id) }, { id -> onShowProduct(id) })
+        adapter = ShopMealAdapter({ id -> onDeleteMeal(id) }, { id -> onShowMeal(id) })
 
         binding.productsRecycler.adapter = adapter
-        subscribeProducts()
+        subscribeMeals()
         return binding.root
     }
 
-    private fun onShowProduct(productId: Int) {
-        val bundle = bundleOf("id" to productId, "show_buttons" to false)
+    private fun onShowMeal(mealId: Int) {
+        val bundle = bundleOf("id" to mealId, "show_buttons" to false)
         val action = R.id.action_shopProductsFragment_to_productViewFragment
         findNavController().navigate(action, bundle)
     }
 
-    private fun onDeleteProduct(productId: Int) {
+    private fun onDeleteMeal(mealId: Int) {
         AlertDialog.Builder(context)
             .setMessage("¿Desea eliminar el producto?")
             .setNegativeButton("No") { _, _ -> }
             .setPositiveButton("Si") { _, _ ->
-                deleteProduct(productId)
+                deleteMeal(mealId)
             }
             .show()
     }
 
-    private fun deleteProduct(productId: Int) {
+    private fun deleteMeal(mealId: Int) {
         listViewModel.viewModelScope.launch {
-            listViewModel.deleteProduct(productId)
-            loadProductsInAdapter()
-            Toast.makeText(context, "Producto eliminado", Toast.LENGTH_LONG).show()
+            listViewModel.deleteMeal(mealId)
+            loadMealsInAdapter()
+            Toast.makeText(context, "Comida eliminada", Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun subscribeProducts() {
+    private fun subscribeMeals() {
         listViewModel.viewModelScope.launch {
-            loadProductsInAdapter()
+            loadMealsInAdapter()
         }
     }
 
-    private suspend fun loadProductsInAdapter() {
+    private suspend fun loadMealsInAdapter() {
         showSpinner()
-        listViewModel.getProducts().observe(viewLifecycleOwner) { products ->
-            adapter.submitList(products)
+        listViewModel.getMeals().observe(viewLifecycleOwner) { meals ->
+            adapter.submitList(meals)
             hideSpinner()
         }
     }

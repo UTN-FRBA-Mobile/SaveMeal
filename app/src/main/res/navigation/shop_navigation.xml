@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_active_deliveries" />
     <fragment
         android:id="@+id/shopProductsFragment"
-        android:name="com.example.savemeal.ShopProducts.ShopProductsFragment"
+        android:name="com.example.savemeal.meals.shop.ShopMealsFragment"
         android:label="Mis Productos"
         tools:layout="@layout/fragment_shop_products" >
         <action
@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_product_register"/>
     <fragment
         android:id="@+id/productViewFragment"
-        android:name="com.example.savemeal.meals.MealDetailFragment"
+        android:name="com.example.savemeal.meals.consumer.MealDetailFragment"
         android:label="Detalle"
         tools:layout="@layout/fragment_meal_detail" >
         <argument

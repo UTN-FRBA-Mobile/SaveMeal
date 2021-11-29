@@ -1,21 +1,21 @@
-package com.example.savemeal.ShopProducts
+package com.example.savemeal.meals.shop
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.savemeal.databinding.ShopProductItemBinding
 import com.example.savemeal.domain.meal.MealOption
+import com.example.savemeal.meals.consumer.MealDiffCallback
 
-class ShopProductsAdapter(
+class ShopMealAdapter(
     private val onDeleteItem: (Int) -> Unit,
     private val onShowItem: (Int) -> Unit
-) : ListAdapter<MealOption, RecyclerView.ViewHolder>(ProductsDiffCallback()) {
+) : ListAdapter<MealOption, RecyclerView.ViewHolder>(MealDiffCallback()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ShopProductViewHolder(
+        return ShopMealViewHolder(
             ShopProductItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
@@ -23,11 +23,11 @@ class ShopProductsAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val shopProduct = getItem(position)
-        (holder as ShopProductViewHolder).bind(shopProduct, onDeleteItem, onShowItem)
+        val shopMeal = getItem(position)
+        (holder as ShopMealViewHolder).bind(shopMeal, onDeleteItem, onShowItem)
     }
 
-    class ShopProductViewHolder(
+    class ShopMealViewHolder(
         val binding: ShopProductItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -43,16 +43,3 @@ class ShopProductsAdapter(
     }
 }
 
-private class ProductsDiffCallback : DiffUtil.ItemCallback<MealOption>() {
-
-    override fun areItemsTheSame(oldItem: MealOption, newItem: MealOption): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(
-        oldItem: MealOption,
-        newItem: MealOption
-    ): Boolean {
-        return oldItem == newItem
-    }
-}

@@ -19,7 +19,7 @@ class InMemoryMealRepository(private val mealService: MealService) : MealReposit
         return meals.find { it.id == mealId }!!
     }
 
-    override suspend fun getShopProducts(): List<MealOption>? {
+    override suspend fun getShopMeals(): List<MealOption>? {
         meals.clear()
         meals.addAll(mealService.getShopProducts())
         return meals.toMealOption()
@@ -30,7 +30,7 @@ class InMemoryMealRepository(private val mealService: MealService) : MealReposit
     }
 
 
-    override suspend fun deleteProduct(productId: Int) {
+    override suspend fun deleteMeal(productId: Int) {
         meals.removeIf{it.id == productId }
         mealService.deleteProduct(productId)
     }

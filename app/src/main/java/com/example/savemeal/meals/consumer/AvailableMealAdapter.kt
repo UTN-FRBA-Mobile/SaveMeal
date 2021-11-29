@@ -1,10 +1,9 @@
-package com.example.savemeal.meals
+package com.example.savemeal.meals.consumer
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.savemeal.R
@@ -43,16 +42,5 @@ class AvailableMealAdapter : ListAdapter<MealOption, RecyclerView.ViewHolder>(Me
         }
     }
 
-}
-
-private class MealDiffCallback : DiffUtil.ItemCallback<MealOption>() {
-
-    override fun areItemsTheSame(oldItem: MealOption, newItem: MealOption): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: MealOption, newItem: MealOption): Boolean {
-        return oldItem == newItem
-    }
 }
 
