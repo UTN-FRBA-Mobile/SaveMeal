@@ -1,4 +1,4 @@
-package com.example.savemeal.active_deliveries
+package com.example.savemeal.reservations.shop
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -14,12 +14,12 @@ import com.example.savemeal.databinding.FragmentActiveDeliveriesBinding
 import com.example.savemeal.domain.reservation.ReservationListViewModel
 import kotlinx.coroutines.launch
 
-class ActiveDeliveriesFragment : Fragment() {
+class ShopActiveReservationsFragment : Fragment() {
     private var _binding: FragmentActiveDeliveriesBinding? = null
     private val binding get() = _binding!!
 
     private val listViewModel: ReservationListViewModel by viewModels()
-    private lateinit var adapter: ActiveDeliveriesAdapter
+    private lateinit var adapterShop: ShopActiveReservationAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +28,8 @@ class ActiveDeliveriesFragment : Fragment() {
         _binding = FragmentActiveDeliveriesBinding.inflate(inflater, container, false)
 
         binding.entregasRecyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = ActiveDeliveriesAdapter({ id -> onDeleteDelivery(id) }, { id -> onDelivered(id) })
-        binding.entregasRecyclerView.adapter = adapter
+        adapterShop = ShopActiveReservationAdapter({ id -> onDeleteDelivery(id) }, { id -> onDelivered(id) })
+        binding.entregasRecyclerView.adapter = adapterShop
 
         subscribe()
         return binding.root
@@ -91,7 +91,7 @@ class ActiveDeliveriesFragment : Fragment() {
 
     private suspend fun loadDeliveriesInAdapter() {
         listViewModel.getBusinessReservations().observe(viewLifecycleOwner) { meals ->
-            adapter.submitList(meals)
+            adapterShop.submitList(meals)
         }
     }
 

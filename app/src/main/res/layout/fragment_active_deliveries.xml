@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".active_deliveries.ActiveDeliveriesFragment">
+    tools:context=".reservations.shop.ShopActiveReservationsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/entregas_recycler_view"

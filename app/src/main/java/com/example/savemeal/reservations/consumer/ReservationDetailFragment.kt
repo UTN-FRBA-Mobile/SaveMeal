@@ -1,4 +1,4 @@
-package com.example.savemeal.reservations
+package com.example.savemeal.reservations.consumer
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -9,9 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
 import com.example.savemeal.CodeDialogFragment
-import com.example.savemeal.R
 import com.example.savemeal.databinding.FragmentReservationDetailBinding
 import com.example.savemeal.domain.reservation.ReservationViewModel
 import com.squareup.picasso.Picasso

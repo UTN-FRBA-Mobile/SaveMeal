@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/reservationsFragment"
-        android:name="com.example.savemeal.reservations.ReservationsFragment"
+        android:name="com.example.savemeal.reservations.consumer.ReservationsFragment"
         android:label="Reservas"
         tools:layout="@layout/fragment_reservations" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/reservationDetailFragment"
-        android:name="com.example.savemeal.reservations.ReservationDetailFragment"
+        android:name="com.example.savemeal.reservations.consumer.ReservationDetailFragment"
         android:label="Detalle de la reserva"
         tools:layout="@layout/fragment_reservation_detail" >
         <argument

@@ -1,20 +1,20 @@
-package com.example.savemeal.active_deliveries
+package com.example.savemeal.reservations.shop
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.savemeal.databinding.ActiveDeliveryItemBinding
 import com.example.savemeal.domain.reservation.ReservationOption
+import com.example.savemeal.reservations.consumer.ReservationDiffCallback
 
-class ActiveDeliveriesAdapter(
+class ShopActiveReservationAdapter(
     private val onDeleteItem: (Int) -> Unit,
     private val onDeliveredItem: (Int) -> Unit
-) : ListAdapter<ReservationOption, RecyclerView.ViewHolder>(DeliveriesDiffCallback()) {
+) : ListAdapter<ReservationOption, RecyclerView.ViewHolder>(ReservationDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return DeliveryViewHolder(
+        return ShopActiveReservationViewHolder(
             ActiveDeliveryItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
@@ -23,10 +23,10 @@ class ActiveDeliveriesAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val activeReservation = getItem(position)
-        (holder as DeliveryViewHolder).bind(activeReservation, onDeleteItem, onDeliveredItem)
+        (holder as ShopActiveReservationViewHolder).bind(activeReservation, onDeleteItem, onDeliveredItem)
     }
 
-    class DeliveryViewHolder(
+    class ShopActiveReservationViewHolder(
         val binding: ActiveDeliveryItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -46,16 +46,3 @@ class ActiveDeliveriesAdapter(
     }
 }
 
-private class DeliveriesDiffCallback : DiffUtil.ItemCallback<ReservationOption>() {
-
-    override fun areItemsTheSame(oldItem: ReservationOption, newItem: ReservationOption): Boolean {
-        return oldItem.reservationId == newItem.reservationId
-    }
-
-    override fun areContentsTheSame(
-        oldItem: ReservationOption,
-        newItem: ReservationOption
-    ): Boolean {
-        return oldItem == newItem
-    }
-}
