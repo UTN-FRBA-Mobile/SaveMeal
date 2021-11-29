@@ -1,5 +1,6 @@
 package com.example.savemeal.infrastructure
 
+import com.example.savemeal.ShopProducts.ShopProduct
 import com.example.savemeal.domain.meal.MealDetail
 import com.example.savemeal.domain.meal.MealOption
 import com.example.savemeal.domain.meal.MealRepository
@@ -18,6 +19,11 @@ class InMemoryMealRepository(private val mealService: MealService) : MealReposit
         return meals.find { it.id == mealId }!!
     }
 
+    override suspend fun getShopProducts(): List<MealOption>? {
+        addMissingMeals(mealService.getShopProducts())
+        return meals.toMealOption()
+    }
+
     private fun addMissingMeals(newMeals: List<MealDetail>) {
         val missingMeals = newMeals.filterNot {
             meals.any { meal ->
@@ -30,6 +36,11 @@ class InMemoryMealRepository(private val mealService: MealService) : MealReposit
 
     private fun MutableList<MealDetail>.toMealOption(): List<MealOption> {
         return this.map { MealOption(it.id, it.nombre) }
+    }
+
+    override suspend fun deleteProduct(productId: Int) {
+        meals.removeIf{it.id == productId }
+        mealService.deleteProduct(productId)
     }
 
 }

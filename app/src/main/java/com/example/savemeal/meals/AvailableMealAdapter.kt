@@ -25,7 +25,7 @@ class AvailableMealAdapter : ListAdapter<MealOption, RecyclerView.ViewHolder>(Me
         val mealOption = getItem(position)
         (holder as MealOptionViewHolder).bind(mealOption)
 
-        val bundle = bundleOf("id" to mealOption.id)
+        val bundle = bundleOf("id" to mealOption.id, "show_buttons" to true)
         holder.itemView.setOnClickListener(
             Navigation.createNavigateOnClickListener(
                 R.id.action_availableMealsFragment_to_productViewFragment,

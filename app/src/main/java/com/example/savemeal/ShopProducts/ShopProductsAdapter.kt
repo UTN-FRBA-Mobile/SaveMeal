@@ -6,11 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.savemeal.databinding.ShopProductItemBinding
+import com.example.savemeal.domain.meal.MealOption
 
 class ShopProductsAdapter(
     private val onDeleteItem: (Int) -> Unit,
     private val onShowItem: (Int) -> Unit
-) : ListAdapter<ShopProduct, RecyclerView.ViewHolder>(ProductsDiffCallback()) {
+) : ListAdapter<MealOption, RecyclerView.ViewHolder>(ProductsDiffCallback()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -30,27 +31,27 @@ class ShopProductsAdapter(
         val binding: ShopProductItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: ShopProduct, onDeleteItem: (Int) -> Unit, onShowItem: (Int) -> Unit) {
-            binding.productName.text = item.name
+        fun bind(item: MealOption, onDeleteItem: (Int) -> Unit, onShowItem: (Int) -> Unit) {
+            binding.productName.text = item.nombre
             binding.deleteButton.setOnClickListener {
-                onDeleteItem(item.productId)
+                onDeleteItem(item.id)
             }
             binding.showButton.setOnClickListener {
-                onShowItem(item.productId)
+                onShowItem(item.id)
             }
         }
     }
 }
 
-private class ProductsDiffCallback : DiffUtil.ItemCallback<ShopProduct>() {
+private class ProductsDiffCallback : DiffUtil.ItemCallback<MealOption>() {
 
-    override fun areItemsTheSame(oldItem: ShopProduct, newItem: ShopProduct): Boolean {
-        return oldItem.productId == newItem.productId
+    override fun areItemsTheSame(oldItem: MealOption, newItem: MealOption): Boolean {
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(
-        oldItem: ShopProduct,
-        newItem: ShopProduct
+        oldItem: MealOption,
+        newItem: MealOption
     ): Boolean {
         return oldItem == newItem
     }

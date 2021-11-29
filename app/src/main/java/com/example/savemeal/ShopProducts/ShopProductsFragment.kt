@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.savemeal.R
@@ -21,8 +23,7 @@ class ShopProductsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val listViewModel: ShopProductListViewModel by viewModels()
-    private val adapter =
-        ShopProductsAdapter({ id -> onDeleteProduct(id) }, { id -> onShowProduct(id) })
+    private lateinit var adapter : ShopProductsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,13 +33,17 @@ class ShopProductsFragment : Fragment() {
 
         binding.productsRecycler.layoutManager = LinearLayoutManager(context)
 
+        adapter = ShopProductsAdapter({ id -> onDeleteProduct(id) }, { id -> onShowProduct(id) })
+
         binding.productsRecycler.adapter = adapter
         subscribeProducts()
         return binding.root
     }
 
     private fun onShowProduct(productId: Int) {
-
+        val bundle = bundleOf("id" to productId, "show_buttons" to false)
+        val action = R.id.action_shopProductsFragment_to_productViewFragment
+        findNavController().navigate(action, bundle)
     }
 
     private fun onDeleteProduct(productId: Int) {
