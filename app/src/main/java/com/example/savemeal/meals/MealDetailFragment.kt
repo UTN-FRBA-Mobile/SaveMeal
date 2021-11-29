@@ -17,6 +17,10 @@ import com.example.savemeal.domain.meal.MealDetail
 import com.example.savemeal.domain.meal.MealViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
+import android.graphics.BitmapFactory
+import android.util.Base64
+import com.google.android.gms.common.util.Base64Utils
+
 
 class MealDetailFragment : Fragment() {
     private var _binding: FragmentMealDetailBinding? = null
@@ -48,7 +52,12 @@ class MealDetailFragment : Fragment() {
             businessName.text = meal.business.businessName
             availables.text = meal.disponibles.toString()
             detail.text = meal.detalle
-            Picasso.with(requireContext()).load(meal.imagen).into(photo)
+
+            val imageAsBytes: ByteArray = Base64Utils.decode(meal.imagen)
+            photo.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.size))
+
+            var img = "data:image/jpeg;base64," + meal.imagen
+
         }
     }
 
@@ -66,10 +75,12 @@ class MealDetailFragment : Fragment() {
             .setNegativeButton("No") { _, _ -> }
             .setPositiveButton("Si") { _, _ ->
                 makeReservation()
-
-
             }
             .show()
+    }
+
+    fun removeNewLine(string: String): String{
+        return string.replace("\n","")
     }
 
     private fun makeReservation() {

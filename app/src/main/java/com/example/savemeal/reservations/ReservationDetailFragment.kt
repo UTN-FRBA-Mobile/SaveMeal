@@ -71,8 +71,7 @@ class ReservationDetailFragment : Fragment() {
                 .setNegativeButton("No"){ _, _->}
                 .setPositiveButton("Si"){dialog, which ->
                     cancelReservation()
-                    val action = R.id.action_reservationDetailFragment_to_reservationsFragment
-                    findNavController().navigate(action)
+                    fragmentManager?.popBackStack()
                     Toast.makeText(context, "Reserva cancelada", Toast.LENGTH_LONG).show()
                 }
                 .show()
@@ -80,7 +79,6 @@ class ReservationDetailFragment : Fragment() {
         }
 
     }
-
     private fun cancelReservation() {
         viewModel.viewModelScope.launch {
             viewModel.cancelReservation(reservationId)
