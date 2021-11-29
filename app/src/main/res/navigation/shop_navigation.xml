@@ -18,10 +18,22 @@
         <action
             android:id="@+id/action_shopProductsFragment_to_shopProductRegisterFragment"
             app:destination="@id/shopProductRegisterFragment" />
+        <action
+            android:id="@+id/action_shopProductsFragment_to_productViewFragment"
+            app:destination="@id/productViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/shopProductRegisterFragment"
         android:name="com.example.savemeal.ShopProducts.ShopProductRegisterFragment"
         android:label="Nuevo Producto"
         tools:layout="@layout/fragment_product_register"/>
+    <fragment
+        android:id="@+id/productViewFragment"
+        android:name="com.example.savemeal.meals.MealDetailFragment"
+        android:label="Detalle"
+        tools:layout="@layout/fragment_meal_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

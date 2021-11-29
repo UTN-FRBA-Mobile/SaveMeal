@@ -1,6 +1,7 @@
 package com.example.savemeal.meals
 
 import android.app.AlertDialog
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,9 @@ class MealDetailFragment : Fragment() {
         _binding = FragmentMealDetailBinding.inflate(inflater, container, false)
         val mealId = arguments?.getInt("id")!!
         bindUI(mealId)
+        if (arguments?.getBoolean("show_buttons") == false) {
+            binding.buttonBookMeal.visibility = View.GONE
+        }
         return binding.root
     }
 
