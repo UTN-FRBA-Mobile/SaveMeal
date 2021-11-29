@@ -20,7 +20,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/comida"
-        
+
         android:layout_centerHorizontal="true"
         android:layout_below="@id/title"/>
 
@@ -63,7 +63,7 @@
                 android:id="@+id/businessAddress"
                 android:gravity="right"
                 android:padding="4dip"
-                android:text="Calle Falsa 1234" />
+                 />
         </TableRow>
         <TableRow>
             <TextView
@@ -74,7 +74,7 @@
                 android:id="@+id/businessHours"
                 android:gravity="right"
                 android:padding="4dip"
-                android:text="23:30" />
+                 />
         </TableRow>
         <TableRow>
             <TextView
@@ -84,8 +84,7 @@
             <TextView
                 android:id="@+id/expirationDate"
                 android:gravity="right"
-                android:padding="4dip"
-                android:text="01/01/2022" />
+                android:padding="4dip" />
         </TableRow>
         <TableRow>
             <TextView
