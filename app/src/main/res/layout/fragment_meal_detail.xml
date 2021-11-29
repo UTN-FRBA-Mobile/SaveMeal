@@ -20,7 +20,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/comida"
-        android:scaleType="centerInside"
+        
         android:layout_centerHorizontal="true"
         android:layout_below="@id/title"/>
 

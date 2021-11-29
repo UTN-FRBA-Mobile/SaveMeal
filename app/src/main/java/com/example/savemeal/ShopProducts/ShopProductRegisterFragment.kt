@@ -86,7 +86,7 @@ class ShopProductRegisterFragment : Fragment() {
 
     fun bitMapToString(bitmap: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val b = baos.toByteArray()
         return Base64.encodeToString(b, Base64.DEFAULT)
     }
