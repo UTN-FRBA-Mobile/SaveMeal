@@ -1,6 +1,7 @@
 package com.example.savemeal.reservations.consumer
 
 import android.app.AlertDialog
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.savemeal.CodeDialogFragment
 import com.example.savemeal.databinding.FragmentReservationDetailBinding
 import com.example.savemeal.domain.reservation.ReservationViewModel
+import com.google.android.gms.common.util.Base64Utils
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 
@@ -44,7 +46,8 @@ class ReservationDetailFragment : Fragment() {
             businessName.text = reservation.business.businessName
             availables.text = reservation.comida.disponibles.toString()
             detail.text = reservation.comida.detalle
-            Picasso.with(requireContext()).load(reservation.comida.imagen).into(photo)
+            val imageAsBytes: ByteArray = Base64Utils.decode(reservation.comida.imagen)
+            photo.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.size))
         }
     }
 
