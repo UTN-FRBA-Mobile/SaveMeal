@@ -69,6 +69,8 @@ class ShopProductRegisterFragment : Fragment() {
                         1,
                         bitMapToString(binding.productPhoto.drawable.toBitmap()))
                     viewModelShop.createProduct(shopProduct)
+                    fragmentManager?.popBackStack()
+                    Toast.makeText(context, "Su producto ha sido agregado", Toast.LENGTH_SHORT).show()
                 }
 
             }
@@ -84,7 +86,7 @@ class ShopProductRegisterFragment : Fragment() {
 
     fun bitMapToString(bitmap: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos)
         val b = baos.toByteArray()
         return Base64.encodeToString(b, Base64.DEFAULT)
     }
