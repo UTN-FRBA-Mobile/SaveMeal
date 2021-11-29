@@ -33,11 +33,23 @@ class AvailableMealsFragment : Fragment() {
     }
 
     private fun subscribe(adapter: AvailableMealAdapter) {
+        showSpinner()
         listViewModel.viewModelScope.launch {
             listViewModel.getAvailableMeals().observe(viewLifecycleOwner) { meals ->
                 adapter.submitList(meals)
+                hideSpinner()
             }
         }
+    }
+
+    private fun hideSpinner() {
+        binding.spinner.visibility = View.GONE
+        binding.avilableMealsOptions.visibility = View.VISIBLE
+    }
+
+    private fun showSpinner() {
+        binding.spinner.visibility = View.VISIBLE
+        binding.avilableMealsOptions.visibility = View.GONE
     }
 
     override fun onDestroyView() {
