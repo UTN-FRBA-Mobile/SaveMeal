@@ -71,9 +71,23 @@ class ShopProductsFragment : Fragment() {
     }
 
     private suspend fun loadProductsInAdapter() {
+        showSpinner()
         listViewModel.getProducts().observe(viewLifecycleOwner) { products ->
             adapter.submitList(products)
+            hideSpinner()
         }
+    }
+
+    private fun hideSpinner() {
+        binding.spinner.visibility = View.GONE
+        binding.fab.visibility = View.VISIBLE
+        binding.productsRecycler.visibility = View.VISIBLE
+    }
+
+    private fun showSpinner() {
+        binding.spinner.visibility = View.VISIBLE
+        binding.fab.visibility = View.GONE
+        binding.productsRecycler.visibility = View.GONE
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
