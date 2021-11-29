@@ -1,36 +1,30 @@
-package com.example.savemeal.ShopProducts
+package com.example.savemeal.meals.shop
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.graphics.drawable.toBitmap
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.savemeal.CodeDialogFragment
-import com.example.savemeal.R
 import com.example.savemeal.databinding.FragmentProductRegisterBinding
-import com.example.savemeal.databinding.FragmentShopProductsBinding
-import com.example.savemeal.domain.product.ShopProductDetail
-import com.example.savemeal.domain.product.ShopProductViewModel
+import com.example.savemeal.domain.meal.ShopMealViewModel
+import com.example.savemeal.infrastructure.NewMeal
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 
-class ShopProductRegisterFragment : Fragment() {
+class MealRegisterFragment : Fragment() {
     private var _binding: FragmentProductRegisterBinding? = null
     private val binding get() = _binding!!
     val REQUEST_IMAGE_CAPTURE = 1
-    private val viewModelShop: ShopProductViewModel by viewModels()
+    private val viewModelShop: ShopMealViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,21 +54,22 @@ class ShopProductRegisterFragment : Fragment() {
                 Toast.makeText(context, "Por favor, rellene los campos vacíos", Toast.LENGTH_SHORT).show()
             }else{
                 viewModelShop.viewModelScope.launch {
-                    var shopProduct = ShopProductDetail(0,
-                        binding.nameTextInput.text.toString(),
-                        binding.detailsTextInput.text.toString(),
-                        binding.expirationTextInput.text.toString(),
-                    1,
-                        Integer.parseInt(binding.portionsTextInput.text.toString()),
-                        1,
-                        bitMapToString(binding.productPhoto.drawable.toBitmap()))
-                    viewModelShop.createProduct(shopProduct)
+                    val newMeal = createNewMeal()
+                    viewModelShop.createMeal(newMeal)
                     fragmentManager?.popBackStack()
-                    Toast.makeText(context, "Su producto ha sido agregado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Su comida ha sido agregada", Toast.LENGTH_SHORT).show()
                 }
 
             }
         }
+    }
+
+    private fun createNewMeal(): NewMeal {
+        return NewMeal(nombre = binding.nameTextInput.text.toString(),
+        detalle = binding.detailsTextInput.text.toString(),
+        expiracion = binding.expirationTextInput.text.toString(),
+        porciones = Integer.parseInt(binding.portionsTextInput.text.toString()),
+        imagen = bitMapToString(binding.productPhoto.drawable.toBitmap()))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

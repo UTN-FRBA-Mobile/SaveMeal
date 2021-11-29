@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/shopProductRegisterFragment"
-        android:name="com.example.savemeal.ShopProducts.ShopProductRegisterFragment"
+        android:name="com.example.savemeal.meals.shop.MealRegisterFragment"
         android:label="Nuevo Producto"
         tools:layout="@layout/fragment_product_register"/>
     <fragment

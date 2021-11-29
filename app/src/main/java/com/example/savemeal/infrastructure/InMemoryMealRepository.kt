@@ -31,8 +31,12 @@ class InMemoryMealRepository(private val mealService: MealService) : MealReposit
 
 
     override suspend fun deleteMeal(productId: Int) {
-        meals.removeIf{it.id == productId }
+        meals.removeIf { it.id == productId }
         mealService.deleteProduct(productId)
     }
 
+    override suspend fun createMeal(meal: NewMeal) {
+        mealService.createMeal(meal)
+    }
 }
+

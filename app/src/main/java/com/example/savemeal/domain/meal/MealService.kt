@@ -1,12 +1,10 @@
 package com.example.savemeal.domain.meal
 
-import com.example.savemeal.domain.product.ShopProductDetail
+import com.example.savemeal.infrastructure.NewMeal
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface MealService {
 
@@ -20,6 +18,9 @@ interface MealService {
     suspend fun deleteProduct(
         @Path("id")
         productId: Int)
+
+    @POST("product")
+    suspend fun createMeal(@Body meal: NewMeal)
 
     companion object {
         private const val BASE_URL = "https://save-meal-api.herokuapp.com/"
