@@ -71,9 +71,21 @@ class ActiveDeliveriesFragment : Fragment() {
     }
 
     private fun subscribe() {
+        showSpinner()
         listViewModel.viewModelScope.launch {
             loadDeliveriesInAdapter()
+            hideSpinner()
         }
+    }
+
+    private fun hideSpinner() {
+        binding.spinner.visibility = View.GONE
+        binding.entregasRecyclerView.visibility = View.VISIBLE
+    }
+
+    private fun showSpinner() {
+        binding.spinner.visibility = View.VISIBLE
+        binding.entregasRecyclerView.visibility = View.GONE
     }
 
     private suspend fun loadDeliveriesInAdapter() {
