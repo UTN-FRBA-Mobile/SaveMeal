@@ -10,24 +10,15 @@ class InMemoryReservationRepository(private val reservationService: ReservationS
 
     private val reservations: MutableList<ReservationDetail> = mutableListOf()
 
-    private fun addMissingReservations(newReservations: List<ReservationDetail>) {
-        val missingReservations = newReservations.filterNot {
-            reservations.any { res ->
-                res.reservationId == it.reservationId
-            }
-        }
-
-        reservations.addAll(missingReservations)
-    }
-
-
     override suspend fun getUserReservations(): List<ReservationOption> {
-        addMissingReservations(reservationService.getUserReservations())
+        reservations.clear()
+        reservations.addAll(reservationService.getUserReservations())
         return reservations.toReservationOption()
     }
 
     override suspend fun getBusinessReservations(): List<ReservationOption> {
-        addMissingReservations(reservationService.getBusinessReservations())
+        reservations.clear()
+        reservations.addAll(reservationService.getBusinessReservations())
         return reservations.toReservationOption()
     }
 
@@ -41,7 +32,7 @@ class InMemoryReservationRepository(private val reservationService: ReservationS
     }
 
     override suspend fun makeReservation(mealId: Int, businessId: Int) {
-        reservationService.createReservation(NewReservation(mealId, businessId))
+        reservationService.createReservation(NewReservation(businessId, mealId))
     }
 
     override suspend fun markReservationAsDelivered(reservationId: Int) {
